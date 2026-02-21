@@ -18,7 +18,7 @@ const { src1, alt1, src2, alt2, className = "", author = "", loading = "lazy" } 
 
 <figure class={`imagen-with-inner-shadow scroll-reveal-fast ${className}`}>
     <Image src={src1} alt={alt1} class="imagen-scaled" width={800} height={600} loading={loading} />
-    <div class="absolute left-[15%] top-3/4 -translate-y-3/4 w-3/5 h-auto z-2 overflow-hidden rounded-lg">
+    <div class="absolute left-[15%] xl:left-[7%] top-3/4 xl:top-[77%]  -translate-y-3/4 w-3/5 h-auto z-2 overflow-hidden rounded-lg">
         <div class="image-glitch-overlay relative opacity-70">
             <Image src={src2} alt={alt2} class="w-full h-auto" width={400} height={300} loading={loading} />
         </div>

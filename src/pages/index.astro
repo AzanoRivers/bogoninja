@@ -23,7 +23,7 @@ const homeContent = await getEntry('home', 'es');
 			loading="eager"
 			className="sm:float-left xl:float-none w-1/2 xl:w-auto sm:h-80 md:h-90 lg:h-100 xl:h-150"
 		/>
-		<div class="xl:max-w-[45%] xl:flex xl:flex-col xl:justify-end xl:flex-1 xl:mb-12">
+		<div class="xl:max-w-[45%] xl:flex xl:flex-col xl:justify-end xl:flex-1 xl:mb-28">
 			<BlockText text={homeContent?.data.intro_1 ?? ""} />
 			<BlockText className="mt-2" text={homeContent?.data.intro_2 ?? ""} />
 		</div>
@@ -32,8 +32,8 @@ const homeContent = await getEntry('home', 'es');
 		<VideoBox className="w-[75%] xl:w-[50%] sm:h-40 md:h-60 lg:h-80 xl:h-120 sm:mt-2 md:mt-3 lg:mt-6 xl:mt-0" />
 	</section>
 
-	<!-- Header Desktop - sticky que sube con el scroll -->
-	<Header id="desktop-header" className="sm:hidden xl:block xl:fixed xl:bottom-4 xl:right-2 xl:bg-ninja-dark-blue/80 xl:rounded-b-xl xl:z-50 xl:opacity-0 xl:transition-opacity xl:duration-300" />
+	<!-- Header Desktop - fijo en la parte inferior -->
+	<Header className="sm:hidden xl:block xl:z-50" />
 	
 	<!-- Contenido Mobile-->
 	<MobileContent />

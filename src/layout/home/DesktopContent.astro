@@ -1,8 +1,90 @@
 ---
 // Contenido Desktop
+import { BlockText, ImageShadow, SvgText, ImageDouble } from "@/components";
+import { getEntry } from 'astro:content';
+const homeContent = await getEntry('home', 'es');
 export const prerender = true;
 ---
 
-<section class="w-full h-fit sm:hidden xl:block">
-	<!-- Desktop content goes here -->
+<section class="w-full h-fit sm:hidden xl:block p-4 mb-20">
+	<section class="flex justify-start items-start w-full h-max gap-2 ">
+		<article class="w-1/3 h-full">
+			<SvgText svgSrc="/images/papaya.svg" className="max-w-60"/>
+			<BlockText text={homeContent?.data.intro_desk_1 ?? ""} />
+			<BlockText className="mt-3" text={homeContent?.data.intro_desk_2 ?? ""} />
+			<BlockText className="mt-3" text={homeContent?.data.intro_desk_3 ?? ""} />
+			<BlockText className="mt-3" text={homeContent?.data.intro_desk_4 ?? ""} />
+		</article>
+		<article class="w-1/3 h-full flex justify-center items-center">
+			<ImageShadow
+				src="/images/torrescyberpunk.webp"
+				alt="Centro Astro Bog"
+				author="@lumiere.atelier.co"
+				loading="eager"
+				className="xl:h-150 w-[80%]"
+			/>
+		</article>
+		<article class="w-1/3 h-full">
+			<SvgText svgSrc="/images/mosca.svg" className="max-w-60"/>
+			<BlockText text={homeContent?.data.intro_desk_5 ?? ""} />
+			<BlockText className="mt-3" text={homeContent?.data.intro_desk_6 ?? ""} />
+		</article>
+	</section>
+	<section class="w-full h-max flex justify-start items-start">
+		<article class="w-[30%]">
+			<ImageDouble
+				src1="/images/torresdelparque1.jpg"
+				alt1="Centro Astro Bog"
+				src2="/images/yoazano.webp"
+				alt2="Centro Astro Bog"
+				author="@lumiere.atelier.co"
+				loading="eager"
+				className="xl:h-150 w-[80%]"
+			/>
+		</article>
+		<article class="w-[70%] flex justify-start items-start flex-col">
+			<div class="w-100 max-w-100">
+				<SvgText svgSrc="/images/vivo.svg" className="max-w-60"/>
+			</div>
+			<div class="w-200 max-w-200">
+				<BlockText className="mt-3" text={homeContent?.data.intro_desk_7 ?? ""} />
+				<BlockText className="mt-4" text={homeContent?.data.intro_desk_8 ?? ""} />
+				<BlockText className="mt-4" text={homeContent?.data.intro_desk_9 ?? ""} />
+				<BlockText className="mt-6" text={homeContent?.data.intro_desk_10 ?? ""} />
+				<br>
+				<br>
+				<a href="https://www.azanorivers.com" target="_blank" class="mt-6 pl-2 font-lato text-ninja-dark-pink text-2xl font-semibold scroll-reveal-slow">
+					AzanoRivers.
+				</a>
+			</div>
+		</article>
+	</section>
+	<section class="w-full h-max flex justify-start items-start">
+		<article class="w-[70%] flex justify-start items-start flex-col">
+			<div class="w-100 max-w-100">
+				<SvgText svgSrc="/images/firme.svg" className="max-w-60"/>
+			</div>
+			<div class="w-200 max-w-200">
+				<BlockText className="mt-3" text={homeContent?.data.intro_desk_11 ?? ""} />
+				<BlockText className="mt-4" text={homeContent?.data.intro_desk_12 ?? ""} />
+				<BlockText className="mt-4" text={homeContent?.data.intro_desk_13 ?? ""} />
+				<BlockText className="mt-6" text={homeContent?.data.intro_desk_14 ?? ""} />
+			</div>
+			<div class="w-100 max-w-100">
+				<SvgText svgSrc="/images/deuna.svg" className="max-w-60"/>
+			</div>
+			<div class="w-200 max-w-200">
+				<BlockText className="mt-3" text={homeContent?.data.intro_desk_15 ?? ""} />
+			</div>
+		</article>
+		<article class="w-[30%]">
+			<ImageShadow
+				src="/images/torrescyberpunk3.webp"
+				alt="Centro Astro Bog"
+				author="@lumiere.atelier.co"
+				loading="eager"
+				className="xl:h-180 w-[80%]"
+			/>
+		</article>
+	</section>
 </section>
