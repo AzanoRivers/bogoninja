@@ -10,7 +10,7 @@ intro_8: "He experimentado inclementes adversidades a lo largo de mi vida y quie
 intro_9: "Dominar el miedo que paraliza no es fácil, pero con confianza, estrategia y personalidad lograrás lo que yo considero ser un “Ninja Moderno”."
 intro_10: "Trabajaremos tus miedos, inseguridades, sabrás cómo actuar antes de que sea necesario aplicar la técnica marcial que aprenderás."
 intro_11: "Esto no es un curso tradicional donde te dan 30 llaves de Jiujitsu en 1 semana, como luchar contra 5 ladrones al tiempo o esquivar balas."
-intro_12: "Bogotá Ninja 忍び es una iniciativa personal, junto a mi Marca AzanoRivers."
+intro_12: "Bogotá Ninja 忍び es una iniciativa personal, junto a mi Marca"
 intro_13: "Tu decides cuantas clases quieres tomar y el costo de cada una. El valor debe ser cancelado antes de iniciar."
 intro_14: "Este valor es simbólico y no representa pago formal por un servicio, representa que todo en la vida tiene un valor."
 intro_15: "Cada sesión será grupal, una cada fin de semana (sujeto a quórum), en el parque nacional (pueden ser varias locaciones, sujeto al clima o excursión)."
