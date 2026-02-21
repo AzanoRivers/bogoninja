@@ -1,0 +1,16 @@
+---
+import './ImageShadow.css';
+import Image from "astro/components/Image.astro"
+const { src, alt, className, author = "", loading = "lazy" } = Astro.props
+---
+
+<figure class={`imagen-with-inner-shadow scroll-reveal-fast ${className}`}>
+    <Image src={src} alt={alt} class="imagen-scaled" width={800} height={600} loading={loading} />
+    {author && (
+        <div class="absolute bottom-4 left-4 bg-ninja-dark-blue/30 backdrop-blur-sm py-1.5 md:px-2 rounded border border-ninja-dark-pink/40 flex items-center justify-center z-10">
+            <span class="glitch-text text-ninja-light-pink font-joti sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] leading-none" data-text={author}>
+                {author}
+            </span>
+        </div>
+    )}
+</figure>

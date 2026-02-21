@@ -1,0 +1,32 @@
+---
+import MainLayout from "@/layout/MainLayout.astro";
+import { PulseLogo, Header } from "@/components";
+import { getEntry } from 'astro:content';
+
+const errorContent = await getEntry('errors', '404');
+export const prerender = true;
+---
+
+<MainLayout>
+	<!-- Header Mobile/Tablet -->
+	<Header className="xl:hidden" />
+	<div class="flex flex-col items-center justify-center min-h-[80vh] gap-8 px-6">
+		<PulseLogo className="mt-4" />
+		<div class="text-center space-y-4">
+			<h1 class="font-joti sm:text-6xl md:text-7xl lg:text-8xl text-ninja-light-pink mystic-shadow-static">
+				404
+			</h1>
+			<p class="font-joti sm:text-2xl md:text-3xl lg:text-4xl text-ninja-white">
+				{errorContent?.data.title ?? "Página no encontrada"}
+			</p>
+			<p class="font-suse sm:text-base md:text-lg lg:text-xl text-ninja-white max-w-md mx-auto">
+				{errorContent?.data.description ?? ""}
+			</p>
+			<a href="/" class="inline-block mt-6 font-joti sm:text-lg md:text-xl lg:text-2xl text-ninja-dark-pink hover:text-ninja-light-pink transition-colors duration-300 underline decoration-2 underline-offset-4">
+				{errorContent?.data.link_text ?? "Volver al inicio"}
+			</a>
+		</div>
+	</div>
+	<!-- Header Desktop -->
+	<Header className="sm:hidden xl:block xl:fixed xl:bottom-4 xl:right-4" />
+</MainLayout>

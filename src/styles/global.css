@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* Google Fonts via Fontsource */
+@import "@fontsource/joti-one";
+@import "@fontsource/lato/400.css";
+@import "@fontsource/lato/700.css";
+
+/* Animations */
+@import "./animations.css";
+
+/* Custom Scrollbar */
+@import "./scroll.css";
+
+@theme {
+	--color-ninja-dark-pink: #AB5BC7;
+	--color-ninja-light-pink: #d377f4;
+	--color-ninja-dark-blue: #030A0F;
+	--color-ninja-light-blue: #257bb8;
+	--color-ninja-white: #e3edf6;
+
+	/* Font Families */
+	--font-joti: "Joti One", cursive;
+	--font-lato: "Lato", system-ui, sans-serif;
+
+	/* Custom Breakpoints */
+	--breakpoint-sm: 270px;
+	--breakpoint-md: 360px;
+	--breakpoint-lg: 440px;
+	--breakpoint-xl: 1366px;
+	--breakpoint-2xl: 1600px;
+}

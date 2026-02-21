@@ -1,0 +1,73 @@
+---
+import {  BlockText, ImageShadow, SvgText, ImageDouble } from "@/components";
+import { getEntry } from 'astro:content';
+
+const homeContent = await getEntry('home', 'es');
+export const prerender = true;
+---
+
+<section class="w-full h-fit xl:hidden px-2 sm:mb-10 lg:mb-4">
+	<SvgText svgSrc="/images/papaya.svg" className="mt-10 sm:max-w-40 md:max-w-50 lg:max-w-60"/>
+	<article class="w-full xl:h-dvh sm:mt-4 md:mt-6 lg:mt-8 h-max mystic-shadow">
+		<ImageShadow
+			src="/images/torrescyberpunk.webp"
+			alt="Centro Astro Bog"
+			author="@lumiere.atelier.co"
+			loading="eager"
+			className="sm:float-right w-1/2 sm:h-80 md:h-90 lg:h-100"
+		/>
+		<BlockText text={homeContent?.data.intro_3 ?? ""} />
+		<BlockText className="mt-3" text={homeContent?.data.intro_4 ?? ""} />
+		<BlockText className="mt-3" text={homeContent?.data.intro_5 ?? ""} />
+	</article>
+	<SvgText svgSrc="/images/mosca.svg" className="sm:max-w-40 md:max-w-50 lg:max-w-60"/>
+	<article class="w-full xl:h-dvh sm:mt-4 md:mt-6 lg:mt-8 h-max mystic-shadow">
+		<ImageDouble
+			src1="/images/torresdelparque1.jpg"
+			alt1="Centro Astro Bog"
+			src2="/images/yoazano.webp"
+			alt2="Centro Astro Bog"
+			author="@lumiere.atelier.co"
+			loading="eager"
+			className="sm:float-right w-1/2 sm:h-80 md:h-90 lg:h-100"
+		/>
+		<BlockText text={homeContent?.data.intro_6 ?? ""} />
+		<BlockText className="mt-3" text={homeContent?.data.intro_7 ?? ""} />
+		<BlockText className="mt-3" text={homeContent?.data.intro_8 ?? ""} />
+	</article>
+	<SvgText svgSrc="/images/vivo.svg" className="sm:max-w-40 md:max-w-50 lg:max-w-60"/>
+	<article class="w-full xl:h-dvh sm:mt-4 md:mt-6 lg:mt-8 h-max mystic-shadow">
+		<ImageShadow
+			src="/images/torrescyberpunk3.webp"
+			alt="Centro Astro Bog"
+			author="@lumiere.atelier.co"
+			loading="eager"
+			className="sm:float-left w-1/2 sm:h-80 md:h-90 lg:h-100"
+		/>
+		<BlockText className="mt-3" text={homeContent?.data.intro_9 ?? ""} />
+		<BlockText className="mt-3 sm:pb-0 md:pb-2 lg:pb-16" text={homeContent?.data.intro_10 ?? ""} />
+	</article>
+	<br>
+	<BlockText className="mt-3 md:mt-4 lg:mt-8" text={homeContent?.data.intro_11 ?? ""} />
+	<SvgText svgSrc="/images/firme.svg" className="sm:max-w-40 md:max-w-50 lg:max-w-60"/>
+	<article class="w-full xl:h-dvh sm:mt-4 md:mt-6 lg:mt-8 h-max mystic-shadow">
+		<ImageShadow
+			src="/images/monserratewebp.webp"
+			alt="Centro Astro Bog"
+			author="@_streettones_pb"
+			loading="eager"
+			className="sm:float-right w-1/2 sm:h-80 md:h-90 lg:h-100"
+		/>
+		<BlockText className="mt-3" text={homeContent?.data.intro_12 ?? ""} />
+		<BlockText className="mt-3" text={homeContent?.data.intro_13 ?? ""} />
+		<BlockText className="mt-3 sm:pb-0 md:pb-2 lg:pb-16" text={homeContent?.data.intro_14 ?? ""} />
+	</article>
+	<br>
+	<BlockText className="mt-3 md:mt-4 lg:mt-8" text={homeContent?.data.intro_15 ?? ""} />
+	<BlockText className="mt-3" text={homeContent?.data.intro_16 ?? ""} />
+	<SvgText svgSrc="/images/deuna.svg" className="sm:max-w-40 md:max-w-50 lg:max-w-60"/>
+	<BlockText className="mt-3" text={homeContent?.data.intro_17 ?? ""} />
+	<br>
+	<br>
+	<br>
+</section>

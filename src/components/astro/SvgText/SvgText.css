@@ -1,0 +1,11 @@
+.svg-text-main {
+  filter: brightness(0) saturate(100%) 
+    invert(79%) sepia(10%) saturate(1849%) 
+    hue-rotate(276deg) brightness(101%) contrast(101%);
+}
+
+.svg-text-line {
+  filter: brightness(0) saturate(100%) 
+    invert(85%) sepia(8%) saturate(1644%) 
+    hue-rotate(276deg) brightness(98%) contrast(98%);
+}

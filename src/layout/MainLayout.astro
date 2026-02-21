@@ -1,0 +1,54 @@
+---
+import '@/styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	keywords?: string;
+	ogImage?: string;
+}
+
+const {
+	title = 'Bogotá · Ninja',
+	description = 'Bogotá, fría, distópica, pero amada Bogotá, ciudad de todos, o para unos pocos… Sesiones personalizadas de estrategia urbana, confianza y movilidad inteligente. Por AzanoRivers.',
+	keywords = 'ninja moderno, desarrollo personal Bogotá, confianza personal, seguridad personal, manejo del miedo, AzanoRivers, Azano Rivers, crecimiento personal, estrategia urbana, entrenamiento personal Bogotá, superación personal, defensa personal Bogotá',
+	ogImage = new URL('/bogoninja.png', Astro.site).href,
+} = Astro.props;
+
+const pageUrl = Astro.url.href;
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={pageUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="1200" />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={pageUrl} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+		
+		<title>{title}</title>
+	</head>
+	<body class="bg-ninja-dark-blue min-h-dvh w-full m-0 text-ninja-white font-lato">
+		<slot />
+		<script src="@/scripts/scrollReveal.ts"></script>
+		<script src="@/scripts/stickyHeader.ts"></script>
+	</body>
+</html>

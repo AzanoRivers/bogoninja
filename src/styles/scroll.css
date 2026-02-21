@@ -1,0 +1,43 @@
+/* Custom Scrollbar - Solo escritorio
+   En móviles se usa el scroll nativo del dispositivo */
+
+@media (hover: hover) and (pointer: fine) {
+	/* Para Firefox */
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-ninja-dark-pink) var(--color-ninja-dark-blue);
+	}
+
+	/* Para Chrome, Edge y Safari */
+	::-webkit-scrollbar {
+		width: 12px;
+		height: 12px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--color-ninja-dark-blue);
+		border-radius: 6px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(
+			180deg,
+			var(--color-ninja-light-pink) 0%,
+			var(--color-ninja-dark-pink) 100%
+		);
+		border-radius: 6px;
+		border: 2px solid var(--color-ninja-dark-blue);
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: linear-gradient(
+			180deg,
+			#e89fff 0%,
+			#c67ee0 100%
+		);
+	}
+
+	::-webkit-scrollbar-thumb:active {
+		background: var(--color-ninja-dark-pink);
+	}
+}

@@ -1,0 +1,29 @@
+.imagen-with-inner-shadow {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--color-ninja-dark-blue);
+}
+
+.imagen-scaled {
+    width: 96%;
+    height: 96%;
+    object-fit: cover;
+    object-position: left center;
+    border-radius: 2px;
+}
+
+.imagen-with-inner-shadow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: 
+        inset -8px -8px 10px 6px var(--color-ninja-dark-blue),
+        inset 8px 8px 10px 6px var(--color-ninja-dark-blue);
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 1;
+}

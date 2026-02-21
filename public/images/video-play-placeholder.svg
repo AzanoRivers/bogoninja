@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- Fondo con transparencia -->
+  <rect width="400" height="300" fill="#030A0F" opacity="0.3"/>
+  
+  <!-- Gradiente para el círculo -->
+  <defs>
+    <linearGradient id="playGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d377f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#AB5BC7;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Sombra/Glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Círculo exterior con gradiente -->
+  <circle cx="200" cy="150" r="50" fill="url(#playGradient)" opacity="0.2"/>
+  
+  <!-- Círculo del botón -->
+  <circle cx="200" cy="150" r="40" fill="none" stroke="url(#playGradient)" stroke-width="3" filter="url(#glow)"/>
+  
+  <!-- Triángulo de play -->
+  <path d="M 190 135 L 190 165 L 215 150 Z" fill="url(#playGradient)" filter="url(#glow)"/>
+</svg>

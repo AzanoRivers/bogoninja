@@ -1,0 +1,44 @@
+---
+import {  MainLayout, MobileContent,  DesktopContent } from "@/layout";
+import {  Header, BlockText, VideoBox, ImageShadow } from "@/components";
+import { getEntry } from 'astro:content';
+
+// Pre-renderizar esta página como estática (equivalente a hybrid mode)
+export const prerender = true;
+
+const homeContent = await getEntry('home', 'es');
+---
+
+<MainLayout>
+	<!-- Headers Mobile/Desktop -->
+	<Header className="xl:hidden w-full sticky top-0 z-50 bg-ninja-dark-blue/80 rounded-b-xl" />
+	<section class="absolute top-0 right-[20%] sm:hidden xl:block w-[35%] h-max xl:mt-20 xl:z-40 flex justify-center items-start mystic-shadow-static-slow">
+		<VideoBox className="w-full xl:h-[40dvh]" />
+	</section>
+	<section class="w-full xl:h-dvh sm:mt-4 md:mt-6 lg:mt-8 xl:mt-0 h-max mystic-shadow xl:flex xl:flex-row xl:items-end xl:gap-6 xl:overflow-hidden">
+		<ImageShadow
+			src="/images/centroastrobog.jpg"
+			alt="Centro Astro Bog"
+			author="@lumiere.atelier.co"
+			loading="eager"
+			className="sm:float-left xl:float-none w-1/2 xl:w-auto sm:h-80 md:h-90 lg:h-100 xl:h-150"
+		/>
+		<div class="xl:max-w-[45%] xl:flex xl:flex-col xl:justify-end xl:flex-1 xl:mb-12">
+			<BlockText text={homeContent?.data.intro_1 ?? ""} />
+			<BlockText className="mt-2" text={homeContent?.data.intro_2 ?? ""} />
+		</div>
+	</section>
+	<section class="xl:hidden w-full h-max sm:mt-6 md:mt-10 lg:mt-20 xl:mt-0 flex justify-center items-start mystic-shadow-static-slow">
+		<VideoBox className="w-[75%] xl:w-[50%] sm:h-40 md:h-60 lg:h-80 xl:h-120 sm:mt-2 md:mt-3 lg:mt-6 xl:mt-0" />
+	</section>
+
+	<!-- Header Desktop - sticky que sube con el scroll -->
+	<Header id="desktop-header" className="sm:hidden xl:block xl:fixed xl:bottom-4 xl:right-2 xl:bg-ninja-dark-blue/80 xl:rounded-b-xl xl:z-50 xl:opacity-0 xl:transition-opacity xl:duration-300" />
+	
+	<!-- Contenido Mobile-->
+	<MobileContent />
+
+	<!-- Contenido Desktop-->
+	<DesktopContent />
+
+</MainLayout>

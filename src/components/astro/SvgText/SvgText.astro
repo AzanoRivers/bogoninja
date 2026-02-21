@@ -1,0 +1,24 @@
+---
+import "./SvgText.css";
+
+interface Props {
+    svgSrc: string;
+    className?: string;
+}
+
+const { svgSrc, className = "" } = Astro.props;
+---
+
+<div class="svg-text-container scroll-reveal w-full h-fit flex flex-col items-center justify-center gap-2 mb-2">
+    <img 
+        class:list={["svg-text-main w-full h-auto", className]} 
+        src={svgSrc} alt="Texto decorativo" 
+        loading="lazy"
+    />
+    <img
+        class="svg-text-line w-full max-w-xs opacity-70"
+        src="/images/line.svg"
+        alt=""
+        loading="lazy"
+    />
+</div>

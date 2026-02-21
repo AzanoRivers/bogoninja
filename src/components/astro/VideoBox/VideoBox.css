@@ -1,0 +1,120 @@
+/* ============================================
+   Custom Dashed Border - Optimized 2026
+   GPU-accelerated, responsive, accessible
+   @autor: GitHub Copilot (Claude Sonnet 4.5) - AzanoRivers
+============================================ */
+
+/* Variables CSS para configuración responsive */
+.custom-dashed,
+.custom-dashed-long {
+	--dash-length: 15px;
+	--dash-gap: 10px;
+	--border-width: 2px;
+	--glow-color: var(--color-ninja-dark-pink);
+}
+
+/* Base dashed border */
+.custom-dashed {
+	position: relative;
+	background: transparent;
+	contain: layout style paint;
+}
+
+.custom-dashed::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	background: 
+		repeating-linear-gradient(90deg, var(--glow-color) 0, var(--glow-color) 20px, transparent 20px, transparent 35px) 0 0 / 100% var(--border-width) no-repeat,
+		repeating-linear-gradient(180deg, var(--glow-color) 0, var(--glow-color) 20px, transparent 20px, transparent 35px) 100% 0 / var(--border-width) 100% no-repeat,
+		repeating-linear-gradient(90deg, var(--glow-color) 0, var(--glow-color) 20px, transparent 20px, transparent 35px) 0 100% / 100% var(--border-width) no-repeat,
+		repeating-linear-gradient(180deg, var(--glow-color) 0, var(--glow-color) 20px, transparent 20px, transparent 35px) 0 0 / var(--border-width) 100% no-repeat;
+}
+
+/* Animated variant con glow */
+.custom-dashed-long {
+	position: relative;
+	background: transparent;
+	contain: layout style;
+	
+	/* GPU optimization */
+	will-change: box-shadow;
+	transform: translate3d(0, 0, 0);
+	
+	animation: neon-glow-subtle 4s ease-in-out infinite;
+	
+	/* Responsive dash sizing */
+	@media (min-width: 440px) {
+		--dash-length: 25px;
+		--dash-gap: 13px;
+	}
+	
+	@media (min-width: 1366px) {
+		--dash-length: 40px;
+		--dash-gap: 15px;
+	}
+}
+
+.custom-dashed-long::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	background: 
+		repeating-linear-gradient(90deg, var(--glow-color) 0, var(--glow-color) var(--dash-length), transparent var(--dash-length), transparent calc(var(--dash-length) + var(--dash-gap))) 0 0 / 100% var(--border-width) no-repeat,
+		repeating-linear-gradient(180deg, var(--glow-color) 0, var(--glow-color) var(--dash-length), transparent var(--dash-length), transparent calc(var(--dash-length) + var(--dash-gap))) 100% 0 / var(--border-width) 100% no-repeat,
+		repeating-linear-gradient(90deg, var(--glow-color) 0, var(--glow-color) var(--dash-length), transparent var(--dash-length), transparent calc(var(--dash-length) + var(--dash-gap))) 0 100% / 100% var(--border-width) no-repeat,
+		repeating-linear-gradient(180deg, var(--glow-color) 0, var(--glow-color) var(--dash-length), transparent var(--dash-length), transparent calc(var(--dash-length) + var(--dash-gap))) 0 0 / var(--border-width) 100% no-repeat;
+}
+
+/* Animación de glow con relative colors (CSS 2026) */
+@keyframes neon-glow-subtle {
+	0%, 100% {
+		box-shadow: 
+			0 0 5px rgb(from var(--glow-color) r g b / 0.3),
+			0 0 10px rgb(from var(--glow-color) r g b / 0.2),
+			inset 0 0 5px rgb(from var(--glow-color) r g b / 0.1);
+	}
+	
+	50% {
+		box-shadow: 
+			0 0 8px rgb(from var(--glow-color) r g b / 0.5),
+			0 0 15px rgb(from var(--glow-color) r g b / 0.3),
+			inset 0 0 8px rgb(from var(--glow-color) r g b / 0.2);
+	}
+}
+
+/* Optimización móvil */
+@media (max-width: 767px) {
+	.custom-dashed-long {
+		animation-duration: 6s;
+	}
+	
+	@keyframes neon-glow-subtle {
+		0%, 100% {
+			box-shadow: 
+				0 0 3px rgb(from var(--glow-color) r g b / 0.3),
+				0 0 6px rgb(from var(--glow-color) r g b / 0.2);
+		}
+		
+		50% {
+			box-shadow: 
+				0 0 5px rgb(from var(--glow-color) r g b / 0.4),
+				0 0 10px rgb(from var(--glow-color) r g b / 0.25);
+		}
+	}
+}
+
+/* Accesibilidad: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.custom-dashed-long {
+		animation: none;
+		will-change: auto;
+		box-shadow: 
+			0 0 5px rgb(from var(--glow-color) r g b / 0.3),
+			0 0 10px rgb(from var(--glow-color) r g b / 0.2);
+	}
+}

@@ -1,0 +1,11 @@
+---
+import './header.css';
+const { className = "", id = "" } = Astro.props;
+---
+
+<header id={id} class={`xl:w-fit h-fit font-joti flex justify-end mt-1 px-6 py-4 ${className}`}>
+    <section class="flex items-end gap-1 w-fit h-fit justify-end">
+        <h1 class="sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-none mystic-shadow-static-slow">Bogot</h1>
+        <h2 class="glitch-text sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-none vertical-text" data-text="忍び">忍び</h2>
+    </section>
+</header>

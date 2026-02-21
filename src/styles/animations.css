@@ -1,0 +1,437 @@
+/* ============================================
+    Cyberpunk Glitch Animation 
+    Optimized for 2026 - GPU Accelerated
+    Autor: GitHub Copilot (Claude Sonnet 4.5) - AzanoRivers
+
+    Examples: 
+    <!-- Continua (más impacto visual) -->
+    <h1 class="glitch-text" data-text="Bogot">Bogot</h1>
+
+    <!-- Solo hover (mejor rendimiento) -->
+    <h1 class="glitch-text-hover" data-text="Ninja">Ninja</h1>
+
+    <!-- Pulse sutil (mínimo impacto) -->
+    <span class="glitch-pulse" data-text="忍び">忍び</span>
+============================================ */
+
+/* ========== Base Classes ========== */
+
+.glitch-text {
+	@apply relative inline-block;
+	contain: layout;
+	animation: glitch-color 7s infinite ease-in-out;
+	will-change: color;
+}
+
+.glitch-text-hover {
+	@apply relative inline-block;
+	contain: layout style paint;
+}
+
+.glitch-pulse {
+	@apply relative inline-block;
+	animation: glitch-pulse-anim 4s infinite ease-in-out;
+}
+
+/* ========== Pseudo-elements ========== */
+
+.glitch-text::before,
+.glitch-text::after {
+	@apply absolute top-0 left-0 w-full h-full pointer-events-none;
+	content: attr(data-text);
+	backface-visibility: hidden;
+}
+
+.glitch-text::before {
+	color: var(--color-ninja-light-pink);
+	animation: glitch-anim 2.8s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	opacity: 0.15;
+	mix-blend-mode: screen;
+	will-change: clip-path;
+}
+
+.glitch-text::after {
+	color: var(--color-ninja-dark-pink);
+	animation: glitch-anim 3.2s infinite reverse cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	opacity: 0.15;
+	mix-blend-mode: screen;
+	will-change: clip-path;
+}
+
+.glitch-text-hover::before,
+.glitch-text-hover::after {
+	@apply absolute top-0 left-0 w-full h-full opacity-0 pointer-events-none;
+	content: attr(data-text);
+	transition: opacity 0.15s ease-out;
+	backface-visibility: hidden;
+	transform: translate3d(0, 0, 0);
+}
+
+.glitch-text-hover::before {
+	color: var(--color-ninja-light-pink);
+	text-shadow: 2px 0 var(--color-ninja-light-pink);
+	mix-blend-mode: screen;
+}
+
+.glitch-text-hover::after {
+	color: var(--color-ninja-dark-pink);
+	text-shadow: -2px 0 var(--color-ninja-dark-pink);
+	mix-blend-mode: screen;
+}
+
+.glitch-pulse::before {
+	@apply absolute inset-0 pointer-events-none;
+	content: attr(data-text);
+	color: var(--color-ninja-light-pink);
+	opacity: 0;
+	mix-blend-mode: screen;
+	animation: glitch-pulse-before 4s infinite ease-in-out;
+}
+
+/* ========== Interactive States ========== */
+
+.glitch-text-hover:hover,
+.glitch-text-hover:focus-visible {
+	will-change: transform;
+}
+
+.glitch-text-hover:hover::before,
+.glitch-text-hover:focus-visible::before {
+	animation: glitch-anim 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	opacity: 0.75;
+	will-change: transform, clip-path, opacity;
+}
+
+.glitch-text-hover:hover::after,
+.glitch-text-hover:focus-visible::after {
+	animation: glitch-anim 0.45s reverse cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	opacity: 0.75;
+	will-change: transform, clip-path, opacity;
+}
+
+.glitch-text-hover:not(:hover):not(:focus-visible) {
+	will-change: auto;
+}
+
+.glitch-text-hover:not(:hover):not(:focus-visible)::before,
+.glitch-text-hover:not(:hover):not(:focus-visible)::after {
+	will-change: auto;
+}
+
+/* ========== Media Queries ========== */
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.glitch-text {
+		animation: glitch-color 7s infinite ease-in-out;
+		will-change: auto;
+	}
+
+	.glitch-text::before,
+	.glitch-text::after {
+		animation: none;
+		opacity: 0.1;
+		will-change: auto;
+	}
+
+	.glitch-text-hover:hover,
+	.glitch-text-hover:focus-visible {
+		animation: none;
+	}
+
+	.glitch-text-hover:hover::before,
+	.glitch-text-hover:focus-visible::before,
+	.glitch-text-hover:hover::after,
+	.glitch-text-hover:focus-visible::after {
+		animation: none;
+		opacity: 0.3;
+	}
+}
+
+/* Low-end devices optimization */
+@media (prefers-reduced-motion: no-preference) and (max-width: 440px) {
+	.glitch-text {
+		animation: glitch-color 9s infinite ease-in-out;
+	}
+
+	.glitch-text::before {
+		animation-duration: 4s;
+		opacity: 0.1;
+	}
+
+	.glitch-text::after {
+		animation-duration: 4.5s;
+		opacity: 0.1;
+	}
+}
+
+/* ========== Keyframes ========== */
+
+@keyframes glitch-anim {
+	0%,
+	100% {
+		clip-path: inset(0);
+	}
+
+	10% {
+		clip-path: inset(10% 0 85% 0);
+	}
+
+	20% {
+		clip-path: inset(80% 0 15% 0);
+	}
+
+	30%,
+	50% {
+		clip-path: inset(0);
+	}
+
+	40% {
+		clip-path: inset(40% 0 55% 0);
+	}
+
+	60% {
+		clip-path: inset(70% 0 25% 0);
+	}
+
+	70%,
+	95% {
+		clip-path: inset(0);
+	}
+}
+
+@keyframes glitch-color {
+	0%,
+	15%,
+	100% {
+		color: var(--color-ninja-white) !important;
+		text-shadow: 0 0 0 transparent;
+	}
+
+	20% {
+		color: var(--color-ninja-light-pink) !important;
+		text-shadow: 0 0 5px var(--color-ninja-light-pink),
+		             0 0 10px var(--color-ninja-light-pink);
+	}
+
+	28%,
+	35% {
+		color: var(--color-ninja-light-pink) !important;
+		text-shadow: 0 0 8px var(--color-ninja-light-pink),
+		             0 0 15px var(--color-ninja-light-pink);
+	}
+
+	42%,
+	48%,
+	55% {
+		color: var(--color-ninja-dark-pink) !important;
+		text-shadow: 0 0 10px var(--color-ninja-dark-pink),
+		             0 0 20px var(--color-ninja-dark-pink);
+	}
+
+	60%,
+	65% {
+		color: var(--color-ninja-light-pink) !important;
+		text-shadow: 0 0 8px var(--color-ninja-light-pink),
+		             0 0 15px var(--color-ninja-light-pink);
+	}
+
+	70%,
+	75% {
+		color: var(--color-ninja-light-pink) !important;
+		text-shadow: 0 0 5px var(--color-ninja-light-pink),
+		             0 0 10px var(--color-ninja-light-pink);
+	}
+
+	80% {
+		color: rgba(211, 119, 244, 0.5) !important;
+		text-shadow: 0 0 3px var(--color-ninja-light-pink);
+	}
+
+	85% {
+		color: var(--color-ninja-white) !important;
+		text-shadow: 0 0 0 transparent;
+	}
+}
+
+@keyframes glitch-pulse-anim {
+	0%,
+	100% {
+		text-shadow: 0 0 0 transparent;
+	}
+
+	50% {
+		text-shadow: 0 0 8px var(--color-ninja-light-pink);
+	}
+}
+
+@keyframes glitch-pulse-before {
+	0%,
+	90%,
+	100% {
+		opacity: 0;
+	}
+
+	95% {
+		opacity: 0.6;
+		transform: translate3d(2px, 0, 0);
+	}
+}
+
+/* ============================================
+    Mystic Shadow Animation 
+    Ninja-style opacity effect (runs once on mount)
+	examples:
+	<!-- Velocidad normal (2s) -->
+	<div class="mystic-shadow">Contenido...</div>
+	<!-- Lenta (4s) - más sutil -->
+	<div class="mystic-shadow-slow">Contenido...</div>
+	<!-- Rápida (1s) - más dinámica -->
+	<div class="mystic-shadow-fast">Contenido...</div>
+	<!-- Sin movimiento (solo fade) -->
+	<div class="mystic-shadow-static">Contenido...</div>
+	<div class="mystic-shadow-static-slow">Contenido...</div>
+	<div class="mystic-shadow-static-fast">Contenido...</div>
+============================================ */
+
+.mystic-shadow {
+	opacity: 0;
+	animation: mystic-fade 2s ease-out forwards;
+}
+
+.mystic-shadow-slow {
+	opacity: 0;
+	animation: mystic-fade 4s ease-out forwards;
+}
+
+.mystic-shadow-fast {
+	opacity: 0;
+	animation: mystic-fade 1s ease-out forwards;
+}
+
+.mystic-shadow-static {
+	opacity: 0;
+	animation: mystic-fade-static 2s ease-out forwards;
+}
+
+.mystic-shadow-static-slow {
+	opacity: 0;
+	animation: mystic-fade-static 2s ease-out 1s forwards;
+}
+
+.mystic-shadow-static-fast {
+	opacity: 0;
+	animation: mystic-fade-static 1s ease-out forwards;
+}
+
+@keyframes mystic-fade {
+	0% {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes mystic-fade-static {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	.mystic-shadow,
+	.mystic-shadow-slow,
+	.mystic-shadow-fast,
+	.mystic-shadow-static,
+	.mystic-shadow-static-slow,
+	.mystic-shadow-static-fast {
+		animation: none;
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* ============================================
+    Scroll Reveal Animation 
+    Ninja-style reveal on viewport entry
+	examples:
+	<div class="scroll-reveal">Contenido...</div>
+	<section class="scroll-reveal-slow">Sección...</section>
+	<article class="scroll-reveal-fast">Artículo...</article>
+	<!-- Variaciones de dirección -->
+	<div class="scroll-reveal-left">Desde la izquierda...</div>
+	<div class="scroll-reveal-right">Desde la derecha...</div>
+============================================ */
+
+/* Initial hidden state - before entering viewport */
+.scroll-reveal,
+.scroll-reveal-slow,
+.scroll-reveal-fast {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: none;
+}
+
+/* Visible state - when in viewport (added by JS) */
+.scroll-reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.scroll-reveal-slow.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity 3s ease-out, transform 3s ease-out;
+}
+
+.scroll-reveal-fast.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Variations with different directions */
+.scroll-reveal-left {
+	opacity: 0;
+	transform: translateX(-30px);
+}
+
+.scroll-reveal-left.is-visible {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.scroll-reveal-right {
+	opacity: 0;
+	transform: translateX(30px);
+}
+
+.scroll-reveal-right.is-visible {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	.scroll-reveal,
+	.scroll-reveal-slow,
+	.scroll-reveal-fast,
+	.scroll-reveal-left,
+	.scroll-reveal-right {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+	}
+}

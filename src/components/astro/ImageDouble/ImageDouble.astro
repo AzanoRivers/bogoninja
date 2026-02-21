@@ -1,0 +1,33 @@
+---
+import '../ImageShadow/ImageShadow.css';
+import './ImageDouble.css';
+import Image from "astro/components/Image.astro"
+
+interface Props {
+    src1: string;
+    alt1: string;
+    src2: string;
+    alt2: string;
+    className?: string;
+    author?: string;
+    loading?: "eager" | "lazy";
+}
+
+const { src1, alt1, src2, alt2, className = "", author = "", loading = "lazy" } = Astro.props;
+---
+
+<figure class={`imagen-with-inner-shadow scroll-reveal-fast ${className}`}>
+    <Image src={src1} alt={alt1} class="imagen-scaled" width={800} height={600} loading={loading} />
+    <div class="absolute left-[15%] top-3/4 -translate-y-3/4 w-3/5 h-auto z-2 overflow-hidden rounded-lg">
+        <div class="image-glitch-overlay relative opacity-70">
+            <Image src={src2} alt={alt2} class="w-full h-auto" width={400} height={300} loading={loading} />
+        </div>
+    </div>
+    {author && (
+        <div class="absolute bottom-4 left-4 bg-ninja-dark-blue/30 backdrop-blur-sm py-1.5 px-2 rounded border border-ninja-dark-pink/40 flex items-center justify-center z-10">
+            <span class="glitch-text text-ninja-light-pink font-joti sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] leading-none" data-text={author}>
+                {author}
+            </span>
+        </div>
+    )}
+</figure>
