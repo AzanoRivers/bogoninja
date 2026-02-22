@@ -12,7 +12,8 @@ const homeContent = await getEntry('home', 'es');
 <MainLayout>
 	<!-- Headers Mobile/Desktop -->
 	<Header className="xl:hidden w-full sticky top-0 z-50 bg-ninja-dark-blue/80 rounded-b-xl" />
-	<section class="absolute top-0 right-[20%] sm:hidden xl:block w-[35%] h-max xl:mt-20 xl:z-40 flex justify-center items-start mystic-shadow-static-slow">
+	<!-- VideoBox Desktop -->
+	<section class="absolute top-0 right-[20%] hidden xl:flex w-[35%] h-max xl:mt-20 xl:z-40 justify-center items-start mystic-shadow-static-slow">
 		<VideoBox className="w-full xl:h-[40dvh]" />
 	</section>
 	<section class="w-full xl:h-dvh sm:mt-4 md:mt-6 lg:mt-8 xl:mt-0 h-max mystic-shadow xl:flex xl:flex-row xl:items-end xl:gap-6 xl:overflow-hidden">
@@ -28,12 +29,13 @@ const homeContent = await getEntry('home', 'es');
 			<BlockText className="mt-2" text={homeContent?.data.intro_2 ?? ""} />
 		</div>
 	</section>
-	<section class="xl:hidden w-full h-max sm:mt-6 md:mt-10 lg:mt-20 xl:mt-0 flex justify-center items-start mystic-shadow-static-slow">
-		<VideoBox className="w-[75%] xl:w-[50%] sm:h-40 md:h-60 lg:h-80 xl:h-120 sm:mt-2 md:mt-3 lg:mt-6 xl:mt-0" />
+	<!-- VideoBox Mobile -->
+	<section class="flex xl:hidden w-full h-max sm:mt-6 md:mt-10 lg:mt-20 justify-center items-start mystic-shadow-static-slow">
+		<VideoBox className="w-[75%] sm:h-40 md:h-60 lg:h-80 sm:mt-2 md:mt-3 lg:mt-6" />
 	</section>
 
 	<!-- Header Desktop - fijo en la parte inferior -->
-	<Header className="sm:hidden xl:block xl:z-50" />
+	<Header className="hidden xl:block xl:z-50" />
 	
 	<!-- Contenido Mobile-->
 	<MobileContent />

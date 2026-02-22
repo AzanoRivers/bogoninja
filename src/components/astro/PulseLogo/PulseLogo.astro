@@ -1,13 +1,15 @@
 ---
 import './PulseLogo.css';
+import { Image } from 'astro:assets';
 
 interface Props {
 	className?: string;
+	loading?: "eager" | "lazy";
 }
 
-const { className = '' } = Astro.props as Props;
+const { className = '', loading = "eager" } = Astro.props as Props;
 ---
 
 <div class={`pulse-logo sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-64 xl:h-64 ${className}`}>
-	<img  src="/favicon.svg"  alt="Bogoninja Logo"  class="w-full h-full" />
+	<Image src="/favicon.svg" alt="Bogoninja Logo" class="w-full h-full" loading={loading} width={256} height={256} />
 </div>

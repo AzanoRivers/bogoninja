@@ -35,6 +35,7 @@ const homeCollection = defineCollection({
     intro_desk_13: z.string().optional(),
     intro_desk_14: z.string().optional(),
     intro_desk_15: z.string().optional(),
+    warning_1: z.string().optional(),
   }),
 });
 
@@ -47,7 +48,27 @@ const errorsCollection = defineCollection({
   }),
 });
 
+const formCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name_label: z.string().optional(),
+    name_placeholder: z.string().optional(),
+    improve_label: z.string().optional(),
+    improve_placeholder: z.string().optional(),
+    experience_label: z.string().optional(),
+    experience_placeholder: z.string().optional(),
+    location_label: z.string().optional(),
+    location_option_1: z.string().optional(),
+    location_option_2: z.string().optional(),
+    location_option_3: z.string().optional(),
+    email_label: z.string().optional(),
+    email_placeholder: z.string().optional(),
+    submit_button: z.string().optional(),
+  }),
+});
+
 export const collections = {
   home: homeCollection,
   errors: errorsCollection,
+  form: formCollection,
 };

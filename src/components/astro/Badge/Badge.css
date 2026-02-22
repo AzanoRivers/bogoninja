@@ -1,0 +1,121 @@
+/* ============================================
+   Badge Component - Optimizado 2026
+   Sutil, transparente, GPU-accelerated
+   @autor: GitHub Copilot (Claude Sonnet 4.5) - AzanoRivers
+============================================ */
+
+@import "tailwindcss";
+
+.badge-container {
+    @apply inline-flex items-center px-4 py-2;
+    position: relative;
+    background-color: rgb(from var(--color-ninja-dark-pink) r g b / 0.3);
+    
+    /* Borde dashed como VideoBox */
+    --glow-color: var(--color-ninja-dark-pink);
+    --dash-length: 15px;
+    --dash-gap: 10px;
+    --border-width: 1px;
+    
+    /* Optimización GPU */
+    contain: layout style;
+    will-change: box-shadow;
+    transform: translate3d(0, 0, 0);
+    
+    /* Animación sutil del borde */
+    animation: badge-glow 4s ease-in-out infinite;
+}
+
+/* Borde dashed animado */
+.badge-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: 
+        repeating-linear-gradient(90deg, var(--glow-color) 0, var(--glow-color) var(--dash-length), transparent var(--dash-length), transparent calc(var(--dash-length) + var(--dash-gap))) 0 0 / 100% var(--border-width) no-repeat,
+        repeating-linear-gradient(180deg, var(--glow-color) 0, var(--glow-color) var(--dash-length), transparent var(--dash-length), transparent calc(var(--dash-length) + var(--dash-gap))) 100% 0 / var(--border-width) 100% no-repeat,
+        repeating-linear-gradient(90deg, var(--glow-color) 0, var(--glow-color) var(--dash-length), transparent var(--dash-length), transparent calc(var(--dash-length) + var(--dash-gap))) 0 100% / 100% var(--border-width) no-repeat,
+        repeating-linear-gradient(180deg, var(--glow-color) 0, var(--glow-color) var(--dash-length), transparent var(--dash-length), transparent calc(var(--dash-length) + var(--dash-gap))) 0 0 / var(--border-width) 100% no-repeat;
+}
+
+/* Efecto glitch muy sutil en el fondo */
+.badge-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgb(from var(--color-ninja-light-pink) r g b / 0.05) 50%, 
+        transparent 100%);
+    pointer-events: none;
+    opacity: 0;
+    animation: glitch-bg 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.badge-message {
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow del borde similar al video */
+@keyframes badge-glow {
+    0%, 100% {
+        box-shadow: 
+            0 0 3px rgb(from var(--glow-color) r g b / 0.2),
+            inset 0 0 3px rgb(from var(--glow-color) r g b / 0.05);
+    }
+    50% {
+        box-shadow: 
+            0 0 5px rgb(from var(--glow-color) r g b / 0.3),
+            inset 0 0 5px rgb(from var(--glow-color) r g b / 0.1);
+    }
+}
+
+/* Efecto glitch sutil */
+@keyframes glitch-bg {
+    0%, 90%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    92% {
+        opacity: 0.6;
+        transform: translateX(-2px);
+    }
+    94% {
+        opacity: 0.4;
+        transform: translateX(2px);
+    }
+    96% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+}
+
+/* Optimización móvil: animaciones más suaves */
+@media (max-width: 767px) {
+    .badge-container {
+        animation-duration: 6s;
+        --dash-length: 12px;
+        --dash-gap: 8px;
+    }
+    
+    .badge-container::after {
+        animation-duration: 10s;
+    }
+}
+
+/* Accesibilidad: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .badge-container,
+    .badge-container::after {
+        animation: none;
+        will-change: auto;
+    }
+    
+    .badge-container {
+        box-shadow: 
+            0 0 3px rgb(from var(--glow-color) r g b / 0.2),
+            inset 0 0 3px rgb(from var(--glow-color) r g b / 0.05);
+    }
+}

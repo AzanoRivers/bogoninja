@@ -31,4 +31,5 @@ intro_desk_12: "Este valor es simbólico y no representa pago formal por un serv
 intro_desk_13: "Cada sesión será grupal, una cada fin de semana (sujeto a quórum), en el parque nacional (pueden ser varias locaciones, sujeto al clima o excursión)."
 intro_desk_14: "El lugar puede variar dependiendo del motivo o finalidad de la sesión. Si te consideras nómada o te gusta la aventura será una experiencia indicada."
 intro_desk_15: "Sí estás dispuesto, dispuesta, dispueste, dispuestxs y quieres caminar con seguridad, llena el siguiente formulario."
+warning_1: "Importante: Debes ser mayor de edad o estar acompañado de un adulto en cada sesión. Al enviar el siguiente formulario aceptas que la práctica de cualquier arte marcial, excursión y actividad deportiva conlleva riesgos físicos, es de tu obligación tener asistencia médica y rechazas cualquier denuncia legal hacía el Instructor y/o instructores a cargo de las actividades relacionadas."
 ---

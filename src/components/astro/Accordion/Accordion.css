@@ -1,0 +1,107 @@
+/* ============================================
+   Accordion Component - Optimizado 2026
+   Animación fluida con grid-template-rows
+   @autor: AzanoRivers
+   @ai: Claude Sonnet 4.5 (GitHub Copilot)
+============================================ */
+
+.accordion-container {
+    width: 100%;
+}
+
+/* Botón estilo Label */
+.accordion-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    background-color: rgb(from var(--color-ninja-dark-pink) r g b / 0.15);
+    border: 1px solid rgb(from var(--color-ninja-dark-pink) r g b / 0.4);
+    border-radius: 0.25rem;
+    color: var(--color-ninja-light-pink);
+    font-family: var(--font-lato);
+    font-size: 0.875rem;
+    font-weight: 300;
+    cursor: pointer;
+    /* Transiciones específicas para mejor performance */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: rgb(from var(--color-ninja-dark-pink) r g b / 0.25);
+    border-color: rgb(from var(--color-ninja-dark-pink) r g b / 0.6);
+}
+
+.accordion-button:focus {
+    outline: 2px solid rgb(from var(--color-ninja-light-pink) r g b / 0.5);
+    outline-offset: 2px;
+}
+
+.accordion-title {
+    text-align: left;
+}
+
+/* Iconos con visibilidad condicional */
+.accordion-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+    color: var(--color-ninja-light-pink);
+}
+
+.accordion-icon-up {
+    display: none;
+}
+
+.accordion-button[aria-expanded="true"] .accordion-icon-down {
+    display: none;
+}
+
+.accordion-button[aria-expanded="true"] .accordion-icon-up {
+    display: block;
+}
+
+/* Contenido con animación fluida */
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    overflow: hidden;
+}
+
+.accordion-content.is-open {
+    grid-template-rows: 1fr;
+}
+
+.accordion-content-inner {
+    min-height: 0;
+    padding-top: 0;
+    transition: padding-top 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.accordion-content.is-open .accordion-content-inner {
+    padding-top: 0.75rem;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .accordion-button {
+        font-size: 1rem;
+        padding: 0.625rem 0.875rem;
+    }
+    
+    .accordion-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+/* Accesibilidad: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .accordion-content,
+    .accordion-content-inner {
+        transition: none;
+    }
+}

@@ -1,5 +1,6 @@
 ---
 import "./SvgText.css";
+import { Image } from 'astro:assets';
 
 interface Props {
     svgSrc: string;
@@ -10,15 +11,19 @@ const { svgSrc, className = "" } = Astro.props;
 ---
 
 <div class="svg-text-container scroll-reveal w-full h-fit flex flex-col items-center justify-center gap-2 mb-2">
-    <img 
+    <Image 
         class:list={["svg-text-main w-full h-auto", className]} 
         src={svgSrc} alt="Texto decorativo" 
         loading="lazy"
+        width={300}
+        height={100}
     />
-    <img
+    <Image
         class="svg-text-line w-full max-w-xs opacity-70"
         src="/images/line.svg"
         alt=""
         loading="lazy"
+        width={240}
+        height={20}
     />
 </div>

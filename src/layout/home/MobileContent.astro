@@ -1,8 +1,29 @@
 ---
-import {  BlockText, ImageShadow, SvgText, ImageDouble } from "@/components";
+import {  
+	BlockText, ImageShadow, SvgText, ImageDouble, 
+	Badge, ContactForm, Accordion 
+} from "@/components";
 import { getEntry } from 'astro:content';
 
 const homeContent = await getEntry('home', 'es');
+const formContent = await getEntry('form', 'es');
+
+const formTexts = {
+	nameLabel: formContent?.data.name_label ?? "",
+	namePlaceholder: formContent?.data.name_placeholder ?? "",
+	improveLabel: formContent?.data.improve_label ?? "",
+	improvePlaceholder: formContent?.data.improve_placeholder ?? "",
+	experienceLabel: formContent?.data.experience_label ?? "",
+	experiencePlaceholder: formContent?.data.experience_placeholder ?? "",
+	locationLabel: formContent?.data.location_label ?? "",
+	locationOption1: formContent?.data.location_option_1 ?? "",
+	locationOption2: formContent?.data.location_option_2 ?? "",
+	locationOption3: formContent?.data.location_option_3 ?? "",
+	emailLabel: formContent?.data.email_label ?? "",
+	emailPlaceholder: formContent?.data.email_placeholder ?? "",
+	submitButton: formContent?.data.submit_button ?? "",
+};
+
 export const prerender = true;
 ---
 
@@ -13,7 +34,6 @@ export const prerender = true;
 			src="/images/torrescyberpunk.webp"
 			alt="Centro Astro Bog"
 			author="@lumiere.atelier.co"
-			loading="eager"
 			className="sm:float-right w-1/2 sm:h-80 md:h-90 lg:h-100"
 		/>
 		<BlockText text={homeContent?.data.intro_3 ?? ""} />
@@ -28,7 +48,6 @@ export const prerender = true;
 			src2="/images/yoazano.webp"
 			alt2="Centro Astro Bog"
 			author="@lumiere.atelier.co"
-			loading="eager"
 			className="sm:float-right w-1/2 sm:h-80 md:h-90 lg:h-100"
 		/>
 		<BlockText text={homeContent?.data.intro_6 ?? ""} />
@@ -41,7 +60,6 @@ export const prerender = true;
 			src="/images/torrescyberpunk3.webp"
 			alt="Centro Astro Bog"
 			author="@lumiere.atelier.co"
-			loading="eager"
 			className="sm:float-left w-1/2 sm:h-80 md:h-90 lg:h-100"
 		/>
 		<BlockText className="mt-3" text={homeContent?.data.intro_9 ?? ""} />
@@ -55,7 +73,6 @@ export const prerender = true;
 			src="/images/monserratewebp.webp"
 			alt="Centro Astro Bog"
 			author="@_streettones_pb"
-			loading="eager"
 			className="sm:float-right w-1/2 sm:h-80 md:h-90 lg:h-100"
 		/>
 		<BlockText className="mt-3" text={homeContent?.data.intro_12 ?? ""} />
@@ -70,7 +87,12 @@ export const prerender = true;
 	<BlockText className="mt-3" text={homeContent?.data.intro_16 ?? ""} />
 	<SvgText svgSrc="/images/deuna.svg" className="sm:max-w-40 md:max-w-50 lg:max-w-60"/>
 	<BlockText className="mt-3" text={homeContent?.data.intro_17 ?? ""} />
-	<br>
-	<br>
-	<br>
+	<article class="w-full h-max scroll-reveal sm:mt-8 md:mt-6 lg:mt-4">
+		<Badge message={homeContent?.data.warning_1 ?? ""} />
+	</article>
+	<article class="w-full h-max scroll-reveal sm:mt-8 md:mt-6 sm:mb-8 lg:mb-24">
+		<Accordion title="¡Vamos! - Toca aquí" defaultOpen={false}>
+			<ContactForm client:load texts={formTexts} />
+		</Accordion>
+	</article>
 </section>

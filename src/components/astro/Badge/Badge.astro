@@ -1,0 +1,26 @@
+---
+/**
+ * Badge Component - Mensaje informativo sutil con estilo Bogoninja
+ * 
+ * Uso simple:
+ * <Badge message="Tu mensaje aquí" />
+ * 
+ * Con clase personalizada:
+ * <Badge message="Información importante" className="mt-4" />
+ */
+
+import './Badge.css';
+
+interface Props {
+    message: string;
+    className?: string;
+}
+
+const { message, className = "" } = Astro.props;
+---
+
+<div class={`badge-container ${className}`}>
+    <span class="badge-message font-lato text-ninja-white font-light sm:text-xs md:text-base">
+        {message}
+    </span>
+</div>
