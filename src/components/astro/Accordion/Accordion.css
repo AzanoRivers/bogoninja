@@ -21,7 +21,6 @@
     border-radius: 0.25rem;
     color: var(--color-ninja-light-pink);
     font-family: var(--font-lato);
-    font-size: 0.875rem;
     font-weight: 300;
     cursor: pointer;
     /* Transiciones específicas para mejor performance */
@@ -88,7 +87,6 @@
 /* Responsive */
 @media (min-width: 768px) {
     .accordion-button {
-        font-size: 1rem;
         padding: 0.625rem 0.875rem;
     }
     

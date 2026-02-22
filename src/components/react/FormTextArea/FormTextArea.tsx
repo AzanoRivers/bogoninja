@@ -34,7 +34,7 @@ export default function FormTextArea({ className = "", rows = 3, ...props }: For
     return (
         <textarea
             rows={rows}
-            className={`w-full bg-transparent border border-ninja-light-pink/60 rounded text-ninja-white font-lato text-sm md:text-base font-light px-3 py-2 outline-none focus:border-ninja-light-pink transition-colors duration-300 placeholder:text-ninja-white/40 resize-none ${className}`}
+            className={`w-full bg-transparent border border-ninja-light-pink/60 rounded text-ninja-white font-lato text-sm md:text-base font-light px-3 py-2 outline-none focus:border-ninja-light-pink transition-colors duration-300 placeholder:text-ninja-white/60 resize-none ${className}`}
             {...props}
         />
     );

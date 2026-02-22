@@ -6,8 +6,11 @@ export { default as BlockText } from './astro/BlockText/BlockText.astro';
 export { default as VideoBox } from './astro/VideoBox/VideoBox.astro';
 export { default as PulseLogo } from './astro/PulseLogo/PulseLogo.astro';
 export { default as SvgText } from './astro/SvgText/SvgText.astro';
+export { default as SvgLine } from './astro/SvgLine/SvgLine.astro';
 export { default as Badge } from './astro/Badge/Badge.astro';
 export { default as Accordion } from './astro/Accordion/Accordion.astro';
+export { default as TelegramButton } from './astro/TelegramButton/TelegramButton.astro';
+export { default as GlitchText } from './astro/GlitchText/GlitchText.astro';
 
 // Componentes React - Formulario
 export { default as FormLabel } from './react/FormLabel/FormLabel';

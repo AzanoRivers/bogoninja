@@ -4,6 +4,7 @@ import {
 	BlockText, ImageShadow, SvgText, ImageDouble, 
 	Badge, ContactForm, Accordion 
 } from "@/components";
+import { FooterDesktop } from "@/layout";
 import { getEntry } from 'astro:content';
 
 const homeContent = await getEntry('home', 'es');
@@ -118,4 +119,6 @@ export const prerender = true;
 			</Accordion>
 		</article>
 	</section>
+	<!-- Footer Desktop-->
+	<FooterDesktop />
 </section>

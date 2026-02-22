@@ -1,0 +1,21 @@
+---
+import "./SvgLine.css";
+import { Image } from 'astro:assets';
+
+interface Props {
+    className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`svg-line-container scroll-reveal w-full h-fit flex items-center justify-center mb-2 ${className}`}>
+    <Image
+        class="svg-line w-full max-w-xs opacity-70"
+        src="/images/line.svg"
+        alt=""
+        loading="lazy"
+        width={240}
+        height={20}
+    />
+</div>

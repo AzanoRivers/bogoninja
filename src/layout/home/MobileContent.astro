@@ -1,8 +1,9 @@
 ---
 import {  
 	BlockText, ImageShadow, SvgText, ImageDouble, 
-	Badge, ContactForm, Accordion 
+	Badge, ContactForm, Accordion, SvgLine, TelegramButton
 } from "@/components";
+import { FooterMobile } from "@/layout";
 import { getEntry } from 'astro:content';
 
 const homeContent = await getEntry('home', 'es');
@@ -95,4 +96,6 @@ export const prerender = true;
 			<ContactForm client:load texts={formTexts} />
 		</Accordion>
 	</article>
+	<!-- Footer Mobile-->
+	<FooterMobile className="xl:hidden" />
 </section>

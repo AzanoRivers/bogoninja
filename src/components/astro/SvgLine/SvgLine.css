@@ -1,0 +1,5 @@
+.svg-line {
+  filter: brightness(0) saturate(100%) 
+    invert(85%) sepia(8%) saturate(1644%) 
+    hue-rotate(276deg) brightness(98%) contrast(98%);
+}

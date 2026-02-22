@@ -32,7 +32,7 @@ interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 export default function FormInput({ className = "", ...props }: FormInputProps) {
     return (
         <input
-            className={`w-full bg-transparent border-0 border-b border-ninja-light-pink/60 text-ninja-white font-lato text-sm md:text-base font-light px-2 py-2 outline-none focus:border-ninja-light-pink transition-colors duration-300 placeholder:text-ninja-white/40 ${className}`}
+            className={`w-full bg-transparent border-0 border-b border-ninja-light-pink/60 text-ninja-white font-lato text-sm md:text-base font-light px-2 py-2 outline-none focus:border-ninja-light-pink transition-colors duration-300 placeholder:text-ninja-white/60 ${className}`}
             {...props}
         />
     );

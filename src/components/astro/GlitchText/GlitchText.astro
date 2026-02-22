@@ -1,0 +1,26 @@
+---
+/**
+ * GlitchText Component
+ * Componente para texto con animación glitch cyberpunk continua
+ * Basado en el efecto usado en el Header (letras japonesas)
+ * 
+ * @author AzanoRivers
+ * @ai Claude Sonnet 4.5 (GitHub Copilot)
+ */
+
+interface Props {
+    text: string;
+    className?: string;
+    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+}
+
+const { text, className = "", tag = "span" } = Astro.props;
+const Tag = tag;
+---
+
+<Tag 
+    class={`glitch-text sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl ${className}`} 
+    data-text={text}
+>
+    {text}
+</Tag>
