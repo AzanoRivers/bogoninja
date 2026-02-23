@@ -360,7 +360,13 @@ export default function ContactForm({ texts, className = "" }: ContactFormProps)
 
             {/* Botón de envío */}
             <FormButton type="submit" className="w-full mt-2" disabled={!isCaptchaValid || isPending}>
-                {isPending ? 'Enviando...' : texts.submitButton}
+                {isPending ? (
+                    <span className="inline-flex items-center justify-center gap-1">
+                        <span className="w-2 h-2 bg-ninja-light-pink rounded-full animate-[bounce_1s_ease-in-out_0s_infinite]"></span>
+                        <span className="w-2 h-2 bg-ninja-light-pink rounded-full animate-[bounce_1s_ease-in-out_0.2s_infinite]"></span>
+                        <span className="w-2 h-2 bg-ninja-light-pink rounded-full animate-[bounce_1s_ease-in-out_0.4s_infinite]"></span>
+                    </span>
+                ) : texts.submitButton}
             </FormButton>
         </form>
     );

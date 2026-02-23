@@ -101,7 +101,7 @@ export const prerender = true;
 	<article class="w-full h-max scroll-reveal sm:mt-8 md:mt-6 lg:mt-4">
 		<Badge message={homeContent?.data.warning_1 ?? ""} />
 	</article>
-	<article class="w-full h-max scroll-reveal sm:mt-8 md:mt-6 sm:mb-8 lg:mb-24">
+	<article id="formulario-mobile" class="w-full h-max scroll-reveal sm:mt-8 md:mt-6 sm:mb-8 lg:mb-24">
 		<Accordion title="¡Vamos! - Toca aquí" defaultOpen={false}>
 			<ContactForm client:load texts={formTexts} />
 		</Accordion>

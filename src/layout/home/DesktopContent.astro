@@ -2,7 +2,7 @@
 // Contenido Desktop
 import { 
 	BlockText, ImageShadow, SvgText, ImageDouble, 
-	Badge, ContactForm, Accordion 
+	Badge, ContactForm, Accordion
 } from "@/components";
 import { FooterDesktop } from "@/layout";
 import { getEntry } from 'astro:content';
@@ -122,7 +122,7 @@ export const prerender = true;
 			<Badge message={homeContent?.data.warning_1 ?? ""} />
 		</article>
 	</section>
-	<section class="w-full h-max flex justify-center items-center">
+	<section id="formulario-desktop" class="w-full h-max flex justify-center items-center">
 		<article class="w-[50%] h-full mt-6 mb-6 scroll-reveal">
 			<Accordion title="¡Vamos! - Toca aquí">
 				<ContactForm client:load texts={formTexts} />

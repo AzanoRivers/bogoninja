@@ -1,6 +1,6 @@
 ---
 import {  MainLayout, MobileContent,  DesktopContent } from "@/layout";
-import {  Header, BlockText, VideoBox, ImageShadow } from "@/components";
+import {  Header, BlockText, VideoBox, ImageShadow, FloatingFormButton } from "@/components";
 import { getEntry } from 'astro:content';
 
 // Pre-renderizar esta página como estática (equivalente a hybrid mode)
@@ -42,6 +42,9 @@ const homeContent = await getEntry('home', 'es');
 
 	<!-- Contenido Desktop-->
 	<DesktopContent />
+
+	<!-- Botón flotante - único en todo el DOM -->
+	<FloatingFormButton />
 
 	<!-- Epitafio - Texto final -->
 	<section class="w-full flex justify-center items-center px-4 sm:py-8 md:py-10 lg:py-12 xl:py-16">
