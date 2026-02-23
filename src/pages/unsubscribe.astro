@@ -12,6 +12,7 @@
 
 import MainLayout from "@/layout/MainLayout.astro";
 import { PulseLogo, Header } from "@/components";
+import { processUnsubscribe } from "@/lib/unsubscribe-service";
 
 export const prerender = false; // Esta página necesita SSR para procesar query params
 
@@ -26,22 +27,15 @@ let message = '';
 // Si hay email y token, procesar desuscripción
 if (email && token) {
     try {
-        const response = await fetch(new URL('/api/unsubscribe', Astro.url.origin), {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, token })
-        });
+        // Llamar directamente a la función de servicio (sin fetch interno)
+        const result = await processUnsubscribe(email, token);
 
-        const data = await response.json();
-
-        if (data.success) {
+        if (result.success) {
             status = 'success';
-            message = data.message || 'Te has desuscrito correctamente de las notificaciones de entrenamiento.';
+            message = result.message || 'Te has desuscrito correctamente de las notificaciones de entrenamiento.';
         } else {
             status = 'error';
-            message = data.error || 'Hubo un error al procesar tu solicitud.';
+            message = result.error || 'Hubo un error al procesar tu solicitud.';
         }
     } catch (error) {
         console.error('Error al procesar desuscripción:', error);

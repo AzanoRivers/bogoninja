@@ -9,8 +9,7 @@
  */
 
 import type { APIRoute } from 'astro';
-import { sql } from '@/db/config';
-import { verifyUnsubscribeToken } from '@/lib/unsubscribe';
+import { processUnsubscribe } from '@/lib/unsubscribe-service';
 
 interface UnsubscribeRequest {
     email: string;
@@ -45,59 +44,26 @@ export const POST: APIRoute = async ({ request }) => {
 
         const { email, token } = body;
 
-        // Validar campos requeridos
-        if (!email || !token) {
-            return new Response(
-                JSON.stringify({ 
-                    success: false, 
-                    error: 'Email y token son requeridos' 
-                } as ErrorResponse),
-                { status: 400, headers: { 'Content-Type': 'application/json' } }
-            );
+        // Procesar desuscripción usando función compartida
+        const result = await processUnsubscribe(email, token);
+
+        // Determinar código de estado HTTP
+        let statusCode = 200;
+        if (!result.success) {
+            if (result.error?.includes('inválido') || result.error?.includes('expirado')) {
+                statusCode = 403;
+            } else if (result.error?.includes('no encontró')) {
+                statusCode = 404;
+            } else if (result.error?.includes('requeridos')) {
+                statusCode = 400;
+            } else {
+                statusCode = 500;
+            }
         }
-
-        // Verificar token
-        const isValid = verifyUnsubscribeToken(email, token);
-        if (!isValid) {
-            return new Response(
-                JSON.stringify({ 
-                    success: false, 
-                    error: 'Token inválido o expirado' 
-                } as ErrorResponse),
-                { status: 403, headers: { 'Content-Type': 'application/json' } }
-            );
-        }
-
-        // Verificar si el registro existe
-        const existingRecord = await sql`
-            SELECT id, email, name
-            FROM ninja_registrations
-            WHERE email = ${email.toLowerCase().trim()}
-            LIMIT 1
-        `;
-
-        if (existingRecord.length === 0) {
-            return new Response(
-                JSON.stringify({ 
-                    success: false, 
-                    error: 'No se encontró el registro' 
-                } as ErrorResponse),
-                { status: 404, headers: { 'Content-Type': 'application/json' } }
-            );
-        }
-
-        // Eliminar registro
-        await sql`
-            DELETE FROM ninja_registrations
-            WHERE email = ${email.toLowerCase().trim()}
-        `;
 
         return new Response(
-            JSON.stringify({ 
-                success: true,
-                message: 'Te has desuscrito correctamente de las notificaciones de entrenamiento'
-            } as SuccessResponse),
-            { status: 200, headers: { 'Content-Type': 'application/json' } }
+            JSON.stringify(result),
+            { status: statusCode, headers: { 'Content-Type': 'application/json' } }
         );
 
     } catch (error) {
