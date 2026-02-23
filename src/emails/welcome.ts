@@ -107,14 +107,29 @@ export function generateWelcomeEmail(): string {
 					<tr>
 						<td class="header-logo" style="text-align: center; padding: 40px 20px 20px;">
 							<a href="https://bogota.ninja" style="text-decoration: none; display: inline-block;">
-								<div style="display: inline-flex; align-items: flex-end; gap: 4px;">
-									<span style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #e3edf6; line-height: 1; font-weight: 300; text-shadow: 0 0 10px rgba(227, 237, 246, 0.3);">
-										Bogot
-									</span>
-									<span style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #d377f4; line-height: 1; writing-mode: vertical-rl; text-orientation: upright; text-shadow: 0 0 10px rgba(211, 119, 244, 0.5);">
-										忍び
-									</span>
-								</div>
+							<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display: inline-table; border-collapse: collapse;">
+								<tr>
+									<td style="vertical-align: bottom; padding: 0; line-height: 1;">
+										<span style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #e3edf6; font-weight: 300; text-shadow: 0 0 10px rgba(227, 237, 246, 0.3); display: block;">
+											Bogot
+										</span>
+									</td>
+									<td style="vertical-align: bottom; padding: 0 0 0 4px; line-height: 0.85;">
+										<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+											<tr>
+												<td style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #d377f4; text-shadow: 0 0 10px rgba(211, 119, 244, 0.5); padding: 0; line-height: 0.85; text-align: center;">
+													忍
+												</td>
+											</tr>
+											<tr>
+												<td style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #d377f4; text-shadow: 0 0 10px rgba(211, 119, 244, 0.5); padding: 0; line-height: 0.85; text-align: center;">
+													び
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
 							</a>
 						</td>
 					</tr>
