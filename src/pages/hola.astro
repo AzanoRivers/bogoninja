@@ -1,23 +1,19 @@
+---
 /**
- * Welcome Email Template - Email de bienvenida para nuevos usuarios
+ * Welcome Email Preview - Vista previa del email de bienvenida
  * 
  * @description
- * Genera el HTML del email de bienvenida compatible con clientes de correo.
+ * Página de prueba para visualizar cómo se verá el email de bienvenida en el navegador.
+ * Usa el mismo HTML y estilos que welcome.ts
  * 
  * @author AzanoRivers
  * @ai Claude Sonnet 4.5 (GitHub Copilot)
  */
 
-import { generateUnsubscribeUrl } from '../lib/unsubscribe';
+export const prerender = true;
+---
 
-interface WelcomeEmailData {
-	email: string;
-}
-
-export function generateWelcomeEmail(data: WelcomeEmailData): string {
-	const unsubscribeUrl = generateUnsubscribeUrl(data.email);
-	
-	return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
@@ -115,29 +111,29 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 					<tr>
 						<td class="header-logo" style="text-align: center; padding: 40px 20px 20px;">
 							<a href="https://bogota.ninja" style="text-decoration: none; display: inline-block;">
-							<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display: inline-table; border-collapse: collapse;">
-								<tr>
-									<td style="vertical-align: bottom; padding: 0; line-height: 1;">
-										<span style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #e3edf6; font-weight: 300; text-shadow: 0 0 10px rgba(227, 237, 246, 0.3); display: block;">
-											Bogot
-										</span>
-									</td>
-									<td style="vertical-align: bottom; padding: 0 0 0 4px; line-height: 0.85;">
-										<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
-											<tr>
-												<td style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #d377f4; text-shadow: 0 0 10px rgba(211, 119, 244, 0.5); padding: 0; line-height: 0.85; text-align: center;">
-													忍
-												</td>
-											</tr>
-											<tr>
-												<td style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #d377f4; text-shadow: 0 0 10px rgba(211, 119, 244, 0.5); padding: 0; line-height: 0.85; text-align: center;">
-													び
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
+								<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display: inline-table; border-collapse: collapse;">
+									<tr>
+										<td style="vertical-align: bottom; padding: 0; line-height: 1;">
+											<span style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #e3edf6; font-weight: 300; text-shadow: 0 0 10px rgba(227, 237, 246, 0.3); display: block;">
+												Bogot
+											</span>
+										</td>
+										<td style="vertical-align: bottom; padding: 0 0 0 4px; line-height: 0.85;">
+											<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+												<tr>
+													<td style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #d377f4; text-shadow: 0 0 10px rgba(211, 119, 244, 0.5); padding: 0; line-height: 0.85; text-align: center;">
+														忍
+													</td>
+												</tr>
+												<tr>
+													<td style="font-family: 'Joti One', Georgia, serif; font-size: 56px; color: #d377f4; text-shadow: 0 0 10px rgba(211, 119, 244, 0.5); padding: 0; line-height: 0.85; text-align: center;">
+														び
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
 							</a>
 						</td>
 					</tr>
@@ -204,7 +200,7 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 								<a href="https://bogota.ninja" style="color: #d377f4; font-weight: bold; text-decoration: none;">Bogota.ninja</a> · <a href="https://azanorivers.com" style="color: #d377f4; font-weight: bold; text-decoration: none;">AzanoRivers</a>
 							</p>
 							<p style="font-size: 12px; color: rgba(227, 237, 246, 0.4); margin: 0;">
-							<a href="${unsubscribeUrl}" style="color: rgba(227, 237, 246, 0.4); text-decoration: underline;">Si quieres dejar de recibir correos de las sesiones próximas, haz clic aquí</a>
+							<a href="https://bogota.ninja/unsubscribe" style="color: rgba(227, 237, 246, 0.4); text-decoration: underline;">Si quieres dejar de recibir correos de las sesiones próximas, haz clic aquí</a>
 						</td>
 					</tr>
 					
@@ -213,5 +209,4 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 		</tr>
 	</table>
 </body>
-</html>`;
-}
+</html>
