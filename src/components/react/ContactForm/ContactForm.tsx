@@ -241,7 +241,7 @@ export default function ContactForm({ texts, className = "" }: ContactFormProps)
 
     // Usar useActionState de React 19
     const submitForm = createSubmitForm(texts);
-    const [state, formAction] = useActionState<FormState | null, FormData>(submitForm, null);
+    const [state, formAction, isPending] = useActionState<FormState | null, FormData>(submitForm, null);
 
     // Mostrar toasts basados en el estado y hacer focus en el campo con error
     useEffect(() => {
@@ -359,8 +359,8 @@ export default function ContactForm({ texts, className = "" }: ContactFormProps)
             </div>
 
             {/* Botón de envío */}
-            <FormButton type="submit" className="w-full mt-2" disabled={!isCaptchaValid}>
-                {texts.submitButton}
+            <FormButton type="submit" className="w-full mt-2" disabled={!isCaptchaValid || isPending}>
+                {isPending ? 'Enviando...' : texts.submitButton}
             </FormButton>
         </form>
     );

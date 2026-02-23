@@ -4,6 +4,7 @@
  * @description
  * Endpoint para procesar envíos del formulario de contacto.
  * Maneja INSERT y UPDATE con validación de cooldown por IP (15 minutos).
+ * Envía emails de confirmación usando Resend.
  * 
  * @author AzanoRivers
  * @ai Claude Sonnet 4.5 (GitHub Copilot)
@@ -11,6 +12,7 @@
 
 import type { APIRoute } from 'astro';
 import { sql } from '@/db/config';
+import { sendWelcomeEmail, sendUpdateEmail, sendFormNotification } from '@/lib/email';
 
 interface ContactFormData {
     name: string;
@@ -38,14 +40,29 @@ function getClientIP(request: Request): string {
     const forwardedFor = request.headers.get('x-forwarded-for');
     const realIp = request.headers.get('x-real-ip');
     
+    let clientIP = 'unknown';
+    
     // x-forwarded-for puede contener múltiples IPs (cliente, proxies)
     // Tomamos la primera que es la del cliente original
-    if (forwardedFor) {
-        const ips = forwardedFor.split(',').map(ip => ip.trim());
-        return ips[0];
+    if (forwardedFor && forwardedFor.trim()) {
+        const ips = forwardedFor.split(',').map(ip => ip.trim()).filter(ip => ip);
+        if (ips.length > 0 && ips[0]) {
+            clientIP = ips[0];
+        }
+    } else if (realIp && realIp.trim()) {
+        clientIP = realIp.trim();
     }
     
-    return realIp || 'unknown';
+    // Si es localhost (desarrollo local), retornar 'localhost'
+    if (clientIP === '127.0.0.1' || 
+        clientIP === '::1' || 
+        clientIP === '::ffff:127.0.0.1' ||
+        clientIP === 'localhost' ||
+        clientIP === 'unknown') {
+        return 'localhost';
+    }
+    
+    return clientIP;
 }
 
 /**
@@ -108,9 +125,14 @@ export const POST: APIRoute = async ({ request }) => {
         // Obtener IP del cliente
         const clientIP = getClientIP(request);
 
-        // Consultar si existe registro por email
+        // Consultar si existe registro por email Y calcular minutos transcurridos desde último update
         const existingRecord = await sql`
-            SELECT id, email, ip_update, updated_at 
+            SELECT 
+                id, 
+                email, 
+                ip_update, 
+                updated_at,
+                EXTRACT(EPOCH FROM (NOW() - updated_at)) / 60 AS elapsed_minutes
             FROM ninja_registrations 
             WHERE email = ${formData.email}
             LIMIT 1
@@ -119,9 +141,7 @@ export const POST: APIRoute = async ({ request }) => {
         if (existingRecord.length > 0) {
             // Registro existe - validar cooldown por IP
             const record = existingRecord[0];
-            const lastUpdate = new Date(record.updated_at);
-            const now = new Date();
-            const elapsedMinutes = (now.getTime() - lastUpdate.getTime()) / (1000 * 60);
+            const elapsedMinutes = Number(record.elapsed_minutes);
 
             // Si la IP del último update es la misma y no han pasado 15 minutos
             if (record.ip_update === clientIP && elapsedMinutes < 15) {
@@ -148,6 +168,33 @@ export const POST: APIRoute = async ({ request }) => {
                 WHERE email = ${formData.email}
             `;
 
+            // Enviar emails (garantizar que se completen)
+            try {
+                // Email al usuario con sus datos actualizados
+                await sendUpdateEmail({
+                    to: formData.email,
+                    data: {
+                        name: formData.name,
+                        improve: formData.improve,
+                        experience: formData.experience,
+                        location: formData.location
+                    }
+                });
+
+                // Notificación al RESEND_COPY
+                await sendFormNotification({
+                    name: formData.name,
+                    email: formData.email,
+                    improve: formData.improve,
+                    experience: formData.experience,
+                    location: formData.location,
+                    isNew: false
+                });
+            } catch (err) {
+                console.error('Error enviando emails:', err);
+                // No fallar la request por error de email
+            }
+
             return new Response(
                 JSON.stringify({ 
                     success: true,
@@ -165,6 +212,27 @@ export const POST: APIRoute = async ({ request }) => {
                 (${formData.email}, ${formData.name}, ${formData.improve}, 
                  ${formData.experience}, ${formData.location}, ${clientIP})
         `;
+
+        // Enviar emails (garantizar que se completen)
+        try {
+            // Email de bienvenida al usuario
+            await sendWelcomeEmail({
+                to: formData.email
+            });
+
+            // Notificación al RESEND_COPY
+            await sendFormNotification({
+                name: formData.name,
+                email: formData.email,
+                improve: formData.improve,
+                experience: formData.experience,
+                location: formData.location,
+                isNew: true
+            });
+        } catch (err) {
+            console.error('Error enviando emails:', err);
+            // No fallar la request por error de email
+        }
 
         return new Response(
             JSON.stringify({ 
