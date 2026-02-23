@@ -57,7 +57,6 @@ export async function sendWelcomeEmail({ to }: SendWelcomeEmailParams): Promise<
 			return { success: false, error: error.message };
 		}
 
-		console.log('Email de bienvenida enviado:', data);
 		return { success: true };
 
 	} catch (error) {
@@ -91,7 +90,6 @@ export async function sendUpdateEmail({ to, data }: SendUpdateEmailParams): Prom
 			return { success: false, error: error.message };
 		}
 
-		console.log('Email de actualización enviado:', responseData);
 		return { success: true };
 
 	} catch (error) {
@@ -176,7 +174,6 @@ export async function sendFormNotification(data: FormNotificationData): Promise<
 			return { success: false, error: error.message };
 		}
 
-		console.log('Notificación enviada:', responseData);
 		return { success: true };
 
 	} catch (error) {

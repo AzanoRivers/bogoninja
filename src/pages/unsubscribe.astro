@@ -61,22 +61,6 @@ if (email && token) {
         <div class="text-center space-y-6 max-w-2xl">
             {status === 'success' ? (
                 <>
-                    <!-- Icono de éxito -->
-                    <svg 
-                        class="w-20 h-20 mx-auto text-ninja-light-pink mystic-shadow-static"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path 
-                            stroke-linecap="round" 
-                            stroke-linejoin="round" 
-                            stroke-width="2" 
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                    </svg>
-                    
                     <h1 class="font-joti sm:text-4xl md:text-5xl lg:text-6xl text-ninja-light-pink mystic-shadow-static">
                         Desuscripción Exitosa
                     </h1>
@@ -95,22 +79,6 @@ if (email && token) {
                 </>
             ) : (
                 <>
-                    <!-- Icono de error -->
-                    <svg 
-                        class="w-20 h-20 mx-auto text-ninja-dark-pink mystic-shadow-static"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path 
-                            stroke-linecap="round" 
-                            stroke-linejoin="round" 
-                            stroke-width="2" 
-                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                    </svg>
-                    
                     <h1 class="font-joti sm:text-4xl md:text-5xl lg:text-6xl text-ninja-dark-pink mystic-shadow-static">
                         Error al Desuscribirse
                     </h1>
