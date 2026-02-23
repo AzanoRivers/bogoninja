@@ -39,7 +39,7 @@ interface FormSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> 
 export default function FormSelect({ options, className = "", ...props }: FormSelectProps) {
     return (
         <select
-            className={`form-select w-full bg-ninja-dark-blue/20 border border-ninja-light-pink/40 rounded text-ninja-light-pink font-lato text-sm md:text-base font-light px-3 py-2 outline-none focus:border-ninja-light-pink transition-colors duration-300 cursor-pointer ${className}`}
+            className={`form-select w-full bg-ninja-dark-blue/20 border border-ninja-light-pink/40 rounded text-ninja-light-pink font-lato sm:text-sm md:text-base font-light px-3 py-2 outline-none focus:border-ninja-light-pink transition-colors duration-300 cursor-pointer ${className}`}
             {...props}
         >
             {options.map((option) => (

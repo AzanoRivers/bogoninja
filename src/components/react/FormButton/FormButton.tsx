@@ -24,7 +24,7 @@ interface FormButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 export default function FormButton({ children, className = "", ...props }: FormButtonProps) {
     return (
         <button
-            className={`px-6 py-2 bg-transparent border border-ninja-light-pink/60 rounded text-ninja-light-pink font-lato text-sm md:text-base font-light transition-all duration-300 hover:border-ninja-light-pink hover:bg-ninja-dark-pink/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent ${className}`}
+            className={`sm:px-8 md:px-10 lg:px-12 sm:py-3 md:py-4 lg:py-5 bg-ninja-dark-pink/30 border border-ninja-light-pink/60 rounded text-ninja-light-pink font-lato sm:text-base md:text-lg lg:text-xl font-light transition-all duration-300 hover:border-ninja-light-pink hover:bg-ninja-dark-pink/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-ninja-dark-pink/30 ${className}`}
             {...props}
         >
             {children}

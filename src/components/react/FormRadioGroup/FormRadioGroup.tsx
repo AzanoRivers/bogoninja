@@ -36,9 +36,10 @@ interface FormRadioGroupProps {
     name: string;
     options: RadioOption[];
     className?: string;
+    defaultValue?: string;
 }
 
-export default function FormRadioGroup({ name, options, className = "" }: FormRadioGroupProps) {
+export default function FormRadioGroup({ name, options, className = "", defaultValue }: FormRadioGroupProps) {
     return (
         <div className={`flex flex-wrap gap-2 items-start justify-start ${className}`}>
             {options.map((option) => (
@@ -50,9 +51,10 @@ export default function FormRadioGroup({ name, options, className = "" }: FormRa
                         type="radio"
                         name={name}
                         value={option.value}
+                        defaultChecked={defaultValue === option.value}
                         className="appearance-none w-3 h-3 border border-ninja-light-pink/60 rounded-full checked:bg-ninja-light-pink checked:border-ninja-light-pink transition-all duration-200 cursor-pointer"
                     />
-                    <span className="text-ninja-light-pink font-lato text-sm md:text-base font-light select-none">
+                    <span className="text-ninja-light-pink font-lato sm:text-sm md:text-base font-light select-none">
                         {option.label}
                     </span>
                 </label>

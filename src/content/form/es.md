@@ -1,20 +1,25 @@
 ---
 name_label: "Nombre/Apodo"
 name_placeholder: "Tu nombre o apodo"
-
 improve_label: "¿Qué quieres mejorar?"
 improve_placeholder: "Defensa en la noche o día, vehículo en movimiento, ataque, improvisar..."
-
 experience_label: "¿Alguna experiencia que quieras compartir?"
 experience_placeholder: "Comparte tu experiencia..."
-
 location_label: "¿Qué lugar te queda más cómodo?"
 location_option_1: "Modelia"
 location_option_2: "Parque Nacional"
 location_option_3: "Mosquera"
-
 email_label: "Correo (Notificación de la siguiente sesión)"
 email_placeholder: "tu@correo.com"
-
 submit_button: "Enviar"
+error_name_required: "Por favor, ingresa tu nombre o apodo"
+error_improve_required: "Por favor, cuéntanos qué quieres mejorar"
+error_email_required: "Por favor, ingresa tu correo electrónico"
+error_email_invalid: "Por favor, ingresa un correo electrónico válido"
+error_location_required: "Por favor, selecciona una ubicación"
+success_message: "¡Super! a tu correo llegará más información.\n Tal vez, revisa Spam"
+captcha_label: "Resuelve la suma para continuar"
+error_cooldown: "Debes esperar {minutes} minuto(s) para enviar nuevamente tus datos"
+cooldown_info: "Puedes enviar el formulario 2 veces cada 15min para actualizar tus datos. Recibirás un mensaje con más información sobre las sesiones de entrenamiento a tu correo."
+info_2: "Si no deseas suministrar tu correo, puedes escribirme a mi Telegram que encontrarás abajo de este formulario."
 ---

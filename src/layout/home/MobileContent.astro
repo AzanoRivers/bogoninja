@@ -23,6 +23,16 @@ const formTexts = {
 	emailLabel: formContent?.data.email_label ?? "",
 	emailPlaceholder: formContent?.data.email_placeholder ?? "",
 	submitButton: formContent?.data.submit_button ?? "",
+	errorNameRequired: formContent?.data.error_name_required ?? "",
+	errorImproveRequired: formContent?.data.error_improve_required ?? "",
+	errorEmailRequired: formContent?.data.error_email_required ?? "",
+	errorEmailInvalid: formContent?.data.error_email_invalid ?? "",
+	errorLocationRequired: formContent?.data.error_location_required ?? "",
+	successMessage: formContent?.data.success_message ?? "",
+	captchaLabel: formContent?.data.captcha_label ?? "",
+	errorCooldown: formContent?.data.error_cooldown ?? "",
+	cooldownInfo: formContent?.data.cooldown_info ?? "",
+	info_2: formContent?.data.info_2 ?? "",
 };
 
 export const prerender = true;
@@ -66,8 +76,8 @@ export const prerender = true;
 		<BlockText className="mt-3" text={homeContent?.data.intro_9 ?? ""} />
 		<BlockText className="mt-3 sm:pb-0 md:pb-2 lg:pb-16" text={homeContent?.data.intro_10 ?? ""} />
 	</article>
-	<br>
-	<BlockText className="mt-3 md:mt-10 lg:mt-8" text={homeContent?.data.intro_11 ?? ""} />
+	<div class="sm:h-0 md:h-12 lg:h-16"></div>
+	<BlockText className="mt-3" text={homeContent?.data.intro_11 ?? ""} />
 	<SvgText svgSrc="/images/firme.svg" className="sm:max-w-40 md:max-w-50 lg:max-w-60"/>
 	<article class="w-full xl:h-dvh sm:mt-4 md:mt-6 lg:mt-8 h-max mystic-shadow">
 		<ImageShadow

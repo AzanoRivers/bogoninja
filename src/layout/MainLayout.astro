@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css';
+import { ToastProvider } from '@/components';
 
 interface Props {
 	title?: string;
@@ -48,6 +49,7 @@ const pageUrl = Astro.url.href;
 	</head>
 	<body class="bg-ninja-dark-blue min-h-dvh w-full m-0 text-ninja-white font-lato">
 		<slot />
+		<ToastProvider client:load />
 		<script src="@/scripts/scrollReveal.ts"></script>
 	</body>
 </html>

@@ -25,7 +25,7 @@ export default function FormLabel({ htmlFor, children, className = "" }: FormLab
     return (
         <label
             htmlFor={htmlFor}
-            className={`inline-block w-fit px-3 py-1.5 bg-ninja-dark-pink/15 border border-ninja-dark-pink/40 rounded text-ninja-light-pink font-lato text-sm md:text-base font-light cursor-pointer ${className}`}
+            className={`inline-block w-fit px-3 py-1.5 bg-ninja-dark-pink/15 border border-ninja-dark-pink/40 rounded text-ninja-light-pink font-lato sm:text-sm md:text-base font-light cursor-pointer ${className}`}
         >
             {children}
         </label>

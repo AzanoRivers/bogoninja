@@ -8,6 +8,6 @@ interface Props {
 const { text, className = "", orientation = "left" } = Astro.props;
 ---
 
-<p class={`scroll-reveal text-${orientation} text-lg sm:text-sm md:text-base lg:text-lg xl:text-xl px-2 font-light leading-tight ${className}`}>
+<p class={`scroll-reveal text-${orientation} sm:text-sm md:text-base lg:text-lg xl:text-xl px-2 font-light leading-tight ${className}`}>
     {text}
 </p>

@@ -64,6 +64,16 @@ const formCollection = defineCollection({
     email_label: z.string().optional(),
     email_placeholder: z.string().optional(),
     submit_button: z.string().optional(),
+    error_name_required: z.string().optional(),
+    error_improve_required: z.string().optional(),
+    error_email_required: z.string().optional(),
+    error_email_invalid: z.string().optional(),
+    error_location_required: z.string().optional(),
+    success_message: z.string().optional(),
+    captcha_label: z.string().optional(),
+    error_cooldown: z.string().optional(),
+    cooldown_info: z.string().optional(),
+    info_2: z.string().optional(),
   }),
 });
 
