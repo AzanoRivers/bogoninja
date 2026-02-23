@@ -8,7 +8,15 @@
  * @ai Claude Sonnet 4.5 (GitHub Copilot)
  */
 
-export function generateWelcomeEmail(): string {
+import { generateUnsubscribeUrl } from '../lib/unsubscribe';
+
+interface WelcomeEmailData {
+	email: string;
+}
+
+export function generateWelcomeEmail(data: WelcomeEmailData): string {
+	const unsubscribeUrl = generateUnsubscribeUrl(data.email);
+	
 	return `<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -47,7 +55,7 @@ export function generateWelcomeEmail(): string {
 		}
 		.greeting {
 			font-family: 'Georgia', serif;
-			font-size: 24px;
+			font-size: 20px;
 			color: #d377f4;
 			margin: 0 0 20px 0;
 			text-align: center;
@@ -137,8 +145,7 @@ export function generateWelcomeEmail(): string {
 					<!-- Contenido Principal -->
 					<tr>
 						<td class="content-wrapper" style="padding: 20px 30px;">
-							<h1 class="greeting" style="font-family: Georgia, serif; font-size: 24px; color: #d377f4; margin: 0 0 20px 0; text-align: center; font-style: italic;">
-								Hola soy Azano, es un honor compartir mi conocimiento contigo.
+					<h1 class="greeting" style="font-family: Georgia, serif; font-size: 20px; color: #d377f4; margin: 0 0 20px 0; text-align: center; font-style: italic;">
 							</h1>
 							
 							<p class="paragraph" style="font-size: 16px; line-height: 1.6; color: #e3edf6; margin: 0 0 18px 0;">
@@ -196,8 +203,7 @@ export function generateWelcomeEmail(): string {
 								<a href="https://bogota.ninja" style="color: #d377f4; font-weight: bold; text-decoration: none;">Bogota.ninja</a> · <a href="https://azanorivers.com" style="color: #d377f4; font-weight: bold; text-decoration: none;">AzanoRivers</a>
 							</p>
 							<p style="font-size: 12px; color: rgba(227, 237, 246, 0.4); margin: 0;">
-								<a href="https://bogota.ninja/unsubscribe" style="color: rgba(227, 237, 246, 0.4); text-decoration: underline;">Si quieres dejar de recibir correos de las sesiones próximas, haz clic aquí</a>
-							</p>
+							<a href="${unsubscribeUrl}" style="color: rgba(227, 237, 246, 0.4); text-decoration: underline;">Si quieres dejar de recibir correos de las sesiones próximas, haz clic aquí</a>
 						</td>
 					</tr>
 					

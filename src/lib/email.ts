@@ -43,7 +43,7 @@ interface SendUpdateEmailParams {
  */
 export async function sendWelcomeEmail({ to }: SendWelcomeEmailParams): Promise<{ success: boolean; error?: string }> {
 	try {
-		const html = generateWelcomeEmail();
+		const html = generateWelcomeEmail({ email: to });
 		
 		const { data, error } = await resend.emails.send({
 			from: EMAIL_CONFIG.from,
@@ -74,7 +74,10 @@ export async function sendWelcomeEmail({ to }: SendWelcomeEmailParams): Promise<
  */
 export async function sendUpdateEmail({ to, data }: SendUpdateEmailParams): Promise<{ success: boolean; error?: string }> {
 	try {
-		const html = generateUpdateEmail(data);
+		const html = generateUpdateEmail({
+			email: to,
+			...data
+		});
 		
 		const { data: responseData, error } = await resend.emails.send({
 			from: EMAIL_CONFIG.from,
