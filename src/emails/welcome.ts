@@ -142,7 +142,11 @@ export function generateWelcomeEmail(): string {
 							</h1>
 							
 							<p class="paragraph" style="font-size: 16px; line-height: 1.6; color: #e3edf6; margin: 0 0 18px 0;">
-								Con este registro te enviaré información de la siguiente sesión de entrenamiento. Como entrenamiento nómada, es posible que algunas sesiones te queden lejos, pero <span class="highlight" style="color: #d377f4; font-weight: bold;">¡ESO ES LO EMOCIONANTE!</span>. Si queremos prepararnos para diferentes situaciones, necesitamos experimentar lugares distintos.
+								Con este registro te enviaré información de la siguiente sesión de entrenamiento.
+							</p>
+							
+							<p class="paragraph" style="font-size: 16px; line-height: 1.6; color: #e3edf6; margin: 0 0 18px 0;">
+								Como entrenamiento nómada, es posible que algunas sesiones te queden lejos, pero <span class="highlight" style="color: #d377f4; font-weight: bold;">¡ESO ES LO EMOCIONANTE!</span>. Si queremos prepararnos para diferentes situaciones, necesitamos experimentar lugares distintos.
 							</p>
 							
 							<p class="paragraph" style="font-size: 16px; line-height: 1.6; color: #e3edf6; margin: 0 0 18px 0;">
