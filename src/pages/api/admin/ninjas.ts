@@ -12,6 +12,13 @@
 import type { APIRoute } from 'astro';
 import { sql } from '@/db/config';
 
+const METHOD_NOT_ALLOWED = new Response(
+	JSON.stringify({ error: 'Método no permitido' }),
+	{ status: 405, headers: { 'Content-Type': 'application/json', 'Allow': 'GET' } }
+);
+
+export const ALL: APIRoute = () => METHOD_NOT_ALLOWED;
+
 export const GET: APIRoute = async () => {
 	try {
 		const ninjas = await sql`

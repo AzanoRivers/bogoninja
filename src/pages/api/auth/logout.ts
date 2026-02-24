@@ -11,6 +11,13 @@
 import type { APIRoute } from 'astro';
 import { COOKIE_NAME } from '@/lib/auth';
 
+const METHOD_NOT_ALLOWED = new Response(
+	JSON.stringify({ error: 'Método no permitido' }),
+	{ status: 405, headers: { 'Content-Type': 'application/json', 'Allow': 'GET' } }
+);
+
+export const ALL: APIRoute = () => METHOD_NOT_ALLOWED;
+
 export const GET: APIRoute = async () => {
 	const cookieStr = [
 		`${COOKIE_NAME}=`,

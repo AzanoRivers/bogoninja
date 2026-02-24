@@ -18,6 +18,13 @@
  */
 
 import type { APIRoute } from 'astro';
+
+const METHOD_NOT_ALLOWED = new Response(
+	JSON.stringify({ error: 'Método no permitido' }),
+	{ status: 405, headers: { 'Content-Type': 'application/json', 'Allow': 'POST' } }
+);
+
+export const ALL: APIRoute = () => METHOD_NOT_ALLOWED;
 import { Resend } from 'resend';
 import { sql } from '@/db/config';
 import { generateSesionEmail } from '@/emails/sesion';

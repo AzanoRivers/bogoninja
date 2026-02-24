@@ -14,6 +14,13 @@ import type { APIRoute } from 'astro';
 import { sql } from '@/db/config';
 import { sendWelcomeEmail, sendUpdateEmail, sendFormNotification } from '@/lib/email';
 
+const METHOD_NOT_ALLOWED = new Response(
+	JSON.stringify({ error: 'Método no permitido' }),
+	{ status: 405, headers: { 'Content-Type': 'application/json', 'Allow': 'POST' } }
+);
+
+export const ALL: APIRoute = () => METHOD_NOT_ALLOWED;
+
 interface ContactFormData {
     name: string;
     improve: string;
