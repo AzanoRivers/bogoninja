@@ -12,7 +12,12 @@ import type { APIRoute } from 'astro';
 import { COOKIE_NAME } from '@/lib/auth';
 
 export const POST: APIRoute = async ({ cookies }) => {
-	cookies.delete(COOKIE_NAME, { path: '/' });
+	cookies.delete(COOKIE_NAME, {
+		path: '/',
+		httpOnly: true,
+		secure: import.meta.env.PROD,
+		sameSite: 'strict',
+	});
 
 	return new Response(JSON.stringify({ success: true }), {
 		status: 200,

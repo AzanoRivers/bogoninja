@@ -37,7 +37,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	const session = await verifySession(token);
 
 	if (!session) {
-		context.cookies.delete(COOKIE_NAME, { path: '/' });
+		context.cookies.delete(COOKIE_NAME, {
+			path: '/',
+			httpOnly: true,
+			secure: import.meta.env.PROD,
+			sameSite: 'strict',
+		});
 		if (pathname.startsWith('/api/')) {
 			return new Response(JSON.stringify({ error: 'Sesión expirada' }), {
 				status: 401,
