@@ -11,9 +11,12 @@
 
 import type { APIRoute } from 'astro';
 
-const NOT_FOUND = new Response(
-	JSON.stringify({ error: 'Ruta no encontrada' }),
-	{ status: 404, headers: { 'Content-Type': 'application/json' } }
-);
-
-export const ALL: APIRoute = () => NOT_FOUND;
+export const ALL: APIRoute = ({ request }) => {
+	if (request.headers.get('Accept')?.includes('text/html')) {
+		return new Response(null, { status: 302, headers: { Location: '/404' } });
+	}
+	return new Response(
+		JSON.stringify({ error: 'Ruta no encontrada' }),
+		{ status: 404, headers: { 'Content-Type': 'application/json' } }
+	);
+};

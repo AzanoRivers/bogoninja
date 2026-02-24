@@ -19,12 +19,17 @@
 
 import type { APIRoute } from 'astro';
 
-const METHOD_NOT_ALLOWED = new Response(
-	JSON.stringify({ error: 'Método no permitido' }),
-	{ status: 405, headers: { 'Content-Type': 'application/json', 'Allow': 'POST' } }
-);
+function methodNotAllowed(request: Request, allow: string): Response {
+	if (request.headers.get('Accept')?.includes('text/html')) {
+		return new Response(null, { status: 302, headers: { Location: '/404' } });
+	}
+	return new Response(
+		JSON.stringify({ error: 'Método no permitido' }),
+		{ status: 405, headers: { 'Content-Type': 'application/json', 'Allow': allow } }
+	);
+}
 
-export const ALL: APIRoute = () => METHOD_NOT_ALLOWED;
+export const ALL: APIRoute = ({ request }) => methodNotAllowed(request, 'POST');
 import { Resend } from 'resend';
 import { sql } from '@/db/config';
 import { generateSesionEmail } from '@/emails/sesion';

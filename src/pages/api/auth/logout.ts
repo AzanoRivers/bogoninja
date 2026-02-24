@@ -11,12 +11,17 @@
 import type { APIRoute } from 'astro';
 import { COOKIE_NAME } from '@/lib/auth';
 
-const METHOD_NOT_ALLOWED = new Response(
-	JSON.stringify({ error: 'Método no permitido' }),
-	{ status: 405, headers: { 'Content-Type': 'application/json', 'Allow': 'GET' } }
-);
+function methodNotAllowed(request: Request, allow: string): Response {
+	if (request.headers.get('Accept')?.includes('text/html')) {
+		return new Response(null, { status: 302, headers: { Location: '/404' } });
+	}
+	return new Response(
+		JSON.stringify({ error: 'Método no permitido' }),
+		{ status: 405, headers: { 'Content-Type': 'application/json', 'Allow': allow } }
+	);
+}
 
-export const ALL: APIRoute = () => METHOD_NOT_ALLOWED;
+export const ALL: APIRoute = ({ request }) => methodNotAllowed(request, 'GET');
 
 export const GET: APIRoute = async () => {
 	const cookieStr = [
