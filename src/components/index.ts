@@ -25,3 +25,9 @@ export { default as ContactForm } from './react/ContactForm/ContactForm';
 
 // Componentes React - Providers
 export { default as ToastProvider } from './react/providers/ToastProvider';
+
+// Componentes React - Admin
+export { default as LoginForm } from './react/Admin/LoginForm';
+export { default as Dashboard } from './react/Admin/Dashboard';
+export { default as NinjasList } from './react/Admin/NinjasList';
+export { default as SessionEmailForm } from './react/Admin/SessionEmailForm';

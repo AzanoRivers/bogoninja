@@ -1,0 +1,45 @@
+---
+/**
+ * Login Page - Panel de administración Bogoninja
+ *
+ * @description
+ * Página de login para el panel admin.
+ * Si ya hay sesión activa, redirige al dashboard.
+ *
+ * @author AzanoRivers
+ * @ai Claude Sonnet 4.6 (GitHub Copilot)
+ */
+
+import { COOKIE_NAME, verifySession } from '@/lib/auth';
+import { LoginForm, ToastProvider } from '@/components';
+import '@/styles/global.css';
+
+// SSR — nunca cachear
+export const prerender = false;
+
+// Si ya está logueado → ir directo al dashboard
+const token = Astro.cookies.get(COOKIE_NAME)?.value;
+if (token) {
+	const session = await verifySession(token);
+	if (session) return Astro.redirect('/dashboard');
+}
+
+const expired = Astro.url.searchParams.get('expired') === '1';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="robots" content="noindex, nofollow" />
+	<meta name="googlebot" content="noindex, nofollow" />
+	<title>Admin · Bogoninja</title>
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+<body style="margin:0; background-color:#030A0F;">
+	<LoginForm client:load expired={expired} />
+	<ToastProvider client:load />
+</body>
+</html>

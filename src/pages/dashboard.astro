@@ -1,0 +1,59 @@
+---
+/**
+ * Dashboard Page - Panel de administración Bogoninja
+ *
+ * @description
+ * Panel admin protegido. El middleware garantiza sesión válida antes de llegar aquí.
+ * Carga los ninjas server-side y los pasa como props al componente React.
+ *
+ * @author AzanoRivers
+ * @ai Claude Sonnet 4.6 (GitHub Copilot)
+ */
+
+import { sql } from '@/db/config';
+import { Dashboard as AdminDashboard, ToastProvider } from '@/components';
+import '@/styles/global.css';
+
+export const prerender = false;
+
+// Cargar ninjas en el servidor
+let ninjas: Array<{
+	id: number;
+	email: string;
+	name: string;
+	improve: string;
+	experience: string | null;
+	location: string;
+	created_at: string;
+}> = [];
+
+try {
+	const rows = await sql`
+		SELECT id, email, name, improve, experience, location, created_at
+		FROM ninja_registrations
+		ORDER BY created_at DESC
+	`;
+	ninjas = rows as typeof ninjas;
+} catch (err) {
+	console.error('[dashboard] Error cargando ninjas:', err);
+}
+
+const adminEmail = Astro.locals.admin?.correo ?? '';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="robots" content="noindex, nofollow" />
+	<meta name="googlebot" content="noindex, nofollow" />
+	<title>Dashboard · Bogoninja</title>
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+<body style="margin:0; background-color:#030A0F;">
+	<AdminDashboard client:load ninjas={ninjas} adminEmail={adminEmail} />
+	<ToastProvider client:load />
+</body>
+</html>
