@@ -7,7 +7,7 @@ const errorContent = await getEntry('errors', '404');
 export const prerender = true;
 ---
 
-<MainLayout>
+<MainLayout noIndex={true}>
 	<!-- Header Mobile/Tablet -->
 	<Header className="xl:hidden" />
 	<div class="flex flex-col items-center justify-center min-h-[80vh] gap-8 px-6">

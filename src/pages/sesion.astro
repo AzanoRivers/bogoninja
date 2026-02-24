@@ -1,0 +1,31 @@
+---
+/**
+ * Sesión Email Preview - Vista previa del email de convocatoria de sesión
+ *
+ * @description
+ * Página de prueba para visualizar cómo se verá el email de sesión en el navegador.
+ * Usa generateSesionEmail de emails/sesion.ts con datos de ejemplo.
+ *
+ * @author AzanoRivers
+ * @ai Claude Sonnet 4.6 (GitHub Copilot)
+ */
+
+import { generateSesionEmail } from '@/emails/sesion';
+
+export const prerender = true;
+
+const html = generateSesionEmail({
+	apodo: 'Azano',
+	fecha: '01-03',
+	hora: '07:00',
+	location: 'Parque El Virrey (Calle 87 con Cra 15)',
+	mapsLink: 'https://maps.google.com/?q=Parque+El+Virrey+Bogota',
+	email: 'preview@bogota.ninja',
+	baseUrl: Astro.url.origin,
+}).replace(
+	'<head>',
+	'<head>\n\t<meta name="robots" content="noindex, nofollow">\n\t<meta name="googlebot" content="noindex, nofollow">'
+);
+---
+
+<Fragment set:html={html} />

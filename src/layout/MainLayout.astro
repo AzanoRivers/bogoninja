@@ -7,6 +7,7 @@ interface Props {
 	description?: string;
 	keywords?: string;
 	ogImage?: string;
+	noIndex?: boolean;
 }
 
 const {
@@ -14,6 +15,7 @@ const {
 	description = 'Bogotá, fría, distópica, pero amada Bogotá, ciudad de todos, o para unos pocos… Sesiones personalizadas de estrategia urbana, confianza y movilidad inteligente. Por AzanoRivers.',
 	keywords = 'ninja moderno, desarrollo personal Bogotá, confianza personal, seguridad personal, manejo del miedo, AzanoRivers, Azano Rivers, crecimiento personal, estrategia urbana, entrenamiento personal Bogotá, superación personal, defensa personal Bogotá',
 	ogImage = new URL('/bogoninja.png', Astro.site).href,
+	noIndex = false,
 } = Astro.props;
 
 const pageUrl = Astro.url.href;
@@ -28,6 +30,12 @@ const pageUrl = Astro.url.href;
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="keywords" content={keywords} />
+		{noIndex && (
+			<>
+				<meta name="robots" content="noindex, nofollow" />
+				<meta name="googlebot" content="noindex, nofollow" />
+			</>
+		)}
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
