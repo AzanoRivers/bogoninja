@@ -11,16 +11,21 @@
 import type { APIRoute } from 'astro';
 import { COOKIE_NAME } from '@/lib/auth';
 
-export const POST: APIRoute = async ({ cookies }) => {
-	cookies.delete(COOKIE_NAME, {
-		path: '/',
-		httpOnly: true,
-		secure: import.meta.env.PROD,
-		sameSite: 'strict',
-	});
+export const POST: APIRoute = async () => {
+	const cookieStr = [
+		`${COOKIE_NAME}=`,
+		'Path=/',
+		'Max-Age=0',
+		'HttpOnly',
+		'SameSite=Strict',
+		import.meta.env.PROD ? 'Secure' : '',
+	].filter(Boolean).join('; ');
 
 	return new Response(JSON.stringify({ success: true }), {
 		status: 200,
-		headers: { 'Content-Type': 'application/json' },
+		headers: {
+			'Content-Type': 'application/json',
+			'Set-Cookie': cookieStr,
+		},
 	});
 };
