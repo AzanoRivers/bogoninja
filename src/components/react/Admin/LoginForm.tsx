@@ -23,6 +23,7 @@ export default function LoginForm({ expired = false }: LoginFormProps) {
 	const [correo, setCorreo] = useState('');
 	const [password, setPassword] = useState('');
 	const [captchaValid, setCaptchaValid] = useState(false);
+	const [captchaKey, setCaptchaKey] = useState(0);
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
@@ -47,9 +48,13 @@ export default function LoginForm({ expired = false }: LoginFormProps) {
 				setTimeout(() => { window.location.href = '/dashboard'; }, 800);
 			} else {
 				toast.error(data.error ?? 'Error al iniciar sesión');
+				setCaptchaKey(k => k + 1);
+				setCaptchaValid(false);
 			}
 		} catch {
 			toast.error('No se pudo conectar al servidor');
+			setCaptchaKey(k => k + 1);
+			setCaptchaValid(false);
 		} finally {
 			setLoading(false);
 		}
@@ -124,6 +129,7 @@ export default function LoginForm({ expired = false }: LoginFormProps) {
 
 						{/* Captcha */}
 						<SumValidate
+							key={captchaKey}
 							onValidChange={setCaptchaValid}
 							label="Resuelve la suma para continuar"
 						/>
