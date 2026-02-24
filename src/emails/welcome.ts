@@ -108,7 +108,7 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 									<td style="padding:18px 22px;">
 										<p style="margin:0 0 6px; font-size:11px; color:rgba(211,119,244,0.7); letter-spacing:3px; text-transform:uppercase;">Cómo confirmar</p>
 										<p style="margin:0; font-size:15px; line-height:1.7; color:#e3edf6;">
-											Escríbeme a mi <strong style="color:#d377f4;">Telegram</strong> confirmando tu asistencia el fin de semana
+											Escríbeme a mi <strong style="color:#d377f4;">Telegram</strong> confirmando tu asistencia para el fin de semana
 											<strong style="color:#d377f4;">(mínimo 1 día antes)</strong>. Cada sesión puede ser personal o grupal.
 										</p>
 									</td>
