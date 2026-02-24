@@ -4,7 +4,6 @@ import { PulseLogo, Header } from "@/components";
 import { getEntry } from 'astro:content';
 
 const errorContent = await getEntry('errors', '404');
-export const prerender = true;
 ---
 
 <MainLayout noIndex={true}>
