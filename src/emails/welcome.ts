@@ -143,7 +143,7 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 							<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
 								Recuerda que esto es una iniciativa para desarrollar mi marca
 								<strong style="color:#d377f4;">AzanoRivers</strong>,
-								impactando la sociedad con un estilo de vida moderno e inteligente. ¡Aprovecha lo que te brindo!
+								impactando la sociedad con un estilo de vida moderno e inteligente. ¡Sé un Ninja Moderno!
 							</p>
 						</td>
 					</tr>
