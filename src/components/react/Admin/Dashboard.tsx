@@ -33,9 +33,8 @@ interface DashboardProps {
 	adminEmail: string;
 }
 
-async function handleLogout() {
-	await fetch('/api/auth/logout', { method: 'POST' });
-	window.location.href = '/login';
+function handleLogout() {
+	window.location.href = '/api/auth/logout';
 }
 
 export default function Dashboard({ ninjas, adminEmail }: DashboardProps) {

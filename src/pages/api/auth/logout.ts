@@ -11,7 +11,7 @@
 import type { APIRoute } from 'astro';
 import { COOKIE_NAME } from '@/lib/auth';
 
-export const POST: APIRoute = async () => {
+export const GET: APIRoute = async () => {
 	const cookieStr = [
 		`${COOKIE_NAME}=`,
 		'Path=/',
@@ -21,10 +21,10 @@ export const POST: APIRoute = async () => {
 		import.meta.env.PROD ? 'Secure' : '',
 	].filter(Boolean).join('; ');
 
-	return new Response(JSON.stringify({ success: true }), {
-		status: 200,
+	return new Response(null, {
+		status: 302,
 		headers: {
-			'Content-Type': 'application/json',
+			'Location': '/login',
 			'Set-Cookie': cookieStr,
 		},
 	});
