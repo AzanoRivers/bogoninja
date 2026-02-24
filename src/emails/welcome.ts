@@ -52,7 +52,7 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 									</tr>
 								</table>
 							</a>
-							<p style="margin:10px 0 0; font-size:12px; color:rgba(211,119,244,0.6); letter-spacing:3px; text-transform:uppercase;">Bienvenida</p>
+							<p style="margin:10px 0 0; font-size:12px; color:rgba(211,119,244,0.6); letter-spacing:3px; text-transform:uppercase;">Ninja Moderno</p>
 						</td>
 					</tr>
 
@@ -122,7 +122,7 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 						<td style="padding:8px 32px;">
 							<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
 								Las sesiones tienen una duración de <strong style="color:#d377f4;">2 a 3 horas</strong>. Los fines de semana
-								tú pones el precio, pueden ser 5mil o 50mil pesos. Para mí lo más importante es darte valor real.
+								tú pones el precio. Para mí lo más importante es darte valor real.
 							</p>
 						</td>
 					</tr>
