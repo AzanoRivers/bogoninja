@@ -8,6 +8,7 @@ const homeCollection = defineCollection({
     intro_3: z.string().optional(),
     intro_4: z.string().optional(),
     intro_5: z.string().optional(),
+    intro_5_1: z.string().optional(),
     intro_6: z.string().optional(),
     intro_7: z.string().optional(),
     intro_8: z.string().optional(),

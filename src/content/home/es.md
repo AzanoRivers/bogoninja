@@ -4,6 +4,7 @@ intro_2: "Personas que usaban las sombras y la discreción como medio de protecc
 intro_3: "Bogotá, 3 AM, tomaste la magnífica idea de subir a un taxi."
 intro_4: "Bogotá, 5am, tomaste la muy saludable idea de subir Monserrate por el camino viejo."
 intro_5: "Bogotá, 5pm, te distraes en el Transmilenio en hora pico."
+intro_5_1: "Bogotá 8pm, disfrutas de una tranquila y solitaria ciclorruta."
 intro_6: "La inteligencia supera la fuerza, pero, ¿realmente sabrás cómo reaccionar en estas situaciones?"
 intro_7: "Soy AzanoRivers, entreno artes marciales por más de 15 años."
 intro_8: "He experimentado inclementes adversidades a lo largo de mi vida y quiero compartir mi conocimiento a todos los que deseen recorrer este mundo con seguridad en cada paso."
