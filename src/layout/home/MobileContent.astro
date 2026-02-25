@@ -1,44 +1,15 @@
 ---
 import {  
-	BlockText, ImageShadow, SvgText, ImageDouble, 
-	Badge, ContactForm, Accordion, SvgLine, TelegramButton
+	BlockText, ImageShadow, SvgText, ImageDouble
 } from "@/components";
-import { FooterMobile } from "@/layout";
 import { getEntry } from 'astro:content';
 
 const homeContent = await getEntry('home', 'es');
-const formContent = await getEntry('form', 'es');
-
-const formTexts = {
-	nameLabel: formContent?.data.name_label ?? "",
-	namePlaceholder: formContent?.data.name_placeholder ?? "",
-	improveLabel: formContent?.data.improve_label ?? "",
-	improvePlaceholder: formContent?.data.improve_placeholder ?? "",
-	experienceLabel: formContent?.data.experience_label ?? "",
-	experiencePlaceholder: formContent?.data.experience_placeholder ?? "",
-	locationLabel: formContent?.data.location_label ?? "",
-	locationOption1: formContent?.data.location_option_1 ?? "",
-	locationOption2: formContent?.data.location_option_2 ?? "",
-	locationOption3: formContent?.data.location_option_3 ?? "",
-	emailLabel: formContent?.data.email_label ?? "",
-	emailPlaceholder: formContent?.data.email_placeholder ?? "",
-	submitButton: formContent?.data.submit_button ?? "",
-	errorNameRequired: formContent?.data.error_name_required ?? "",
-	errorImproveRequired: formContent?.data.error_improve_required ?? "",
-	errorEmailRequired: formContent?.data.error_email_required ?? "",
-	errorEmailInvalid: formContent?.data.error_email_invalid ?? "",
-	errorLocationRequired: formContent?.data.error_location_required ?? "",
-	successMessage: formContent?.data.success_message ?? "",
-	captchaLabel: formContent?.data.captcha_label ?? "",
-	errorCooldown: formContent?.data.error_cooldown ?? "",
-	cooldownInfo: formContent?.data.cooldown_info ?? "",
-	info_2: formContent?.data.info_2 ?? "",
-};
 
 export const prerender = true;
 ---
 
-<section class="w-full h-fit xl:hidden px-2 sm:mb-10 lg:mb-4">
+<section class="w-full h-fit xl:hidden px-2">
 	<SvgText svgSrc="/images/papaya.svg" className="mt-10 sm:max-w-40 md:max-w-50 lg:max-w-60"/>
 	<article class="w-full xl:h-dvh sm:mt-4 md:mt-6 lg:mt-8 h-max mystic-shadow">
 		<ImageShadow
@@ -98,14 +69,4 @@ export const prerender = true;
 	<BlockText className="mt-3" text={homeContent?.data.intro_16 ?? ""} />
 	<SvgText svgSrc="/images/deuna.svg" className="sm:max-w-40 md:max-w-50 lg:max-w-60"/>
 	<BlockText className="mt-3" text={homeContent?.data.intro_17 ?? ""} />
-	<article class="w-full h-max scroll-reveal sm:mt-8 md:mt-6 lg:mt-4">
-		<Badge message={homeContent?.data.warning_1 ?? ""} />
-	</article>
-	<article id="formulario-mobile" class="w-full h-max scroll-reveal sm:mt-8 md:mt-6 sm:mb-8 lg:mb-24">
-		<Accordion title="¡Vamos! - Toca aquí" defaultOpen={false}>
-			<ContactForm client:load texts={formTexts} />
-		</Accordion>
-	</article>
-	<!-- Footer Mobile-->
-	<FooterMobile className="xl:hidden" />
 </section>

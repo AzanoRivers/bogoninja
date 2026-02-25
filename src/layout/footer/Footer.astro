@@ -4,15 +4,15 @@ import { BlockText, TelegramButton, GlitchText } from "@/components";
 const {className = ""} = Astro.props;
 ---
 
-<footer class={`w-full flex flex-col justify-center gap-16 items-center h-max sm:mb-10 md:mb-20 lg:mb-32 scroll-reveal ${className}`}>
+<footer class={`w-full flex flex-col justify-center gap-16 xl:gap-20 items-center h-max sm:mb-10 md:mb-20 lg:mb-32 xl:mb-4 scroll-reveal ${className}`}>
     <div class="flex flex-col justify-center items-center">
         <BlockText orientation="center" className="mt-3" text="Si tienes dudas," />
         <BlockText orientation="center" text="¡Pregúntame!" />
     </div>
-    <section class="sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 relative">
+    <section class="sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-40 xl:h-40 relative">
         <TelegramButton />
     </section>
-    <section class="w-full h-32 flex justify-center items-center flex-col gap-2">
+    <section class="w-full h-32 xl:h-40 flex justify-center items-center flex-col gap-2 xl:gap-3">
         <GlitchText className="scroll-reveal" text="Bogota.ninja · AzanoRivers" tag="h3" />
         <GlitchText className="scroll-reveal" text="𖹭" />
         <GlitchText className="scroll-reveal" text="Gracias por Leer ツ" />

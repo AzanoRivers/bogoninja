@@ -1,40 +1,11 @@
 ---
 // Contenido Desktop
 import { 
-	BlockText, ImageShadow, SvgText, ImageDouble, 
-	Badge, ContactForm, Accordion
+	BlockText, ImageShadow, SvgText, ImageDouble
 } from "@/components";
-import { FooterDesktop } from "@/layout";
 import { getEntry } from 'astro:content';
 
 const homeContent = await getEntry('home', 'es');
-const formContent = await getEntry('form', 'es');
-
-const formTexts = {
-	nameLabel: formContent?.data.name_label ?? "",
-	namePlaceholder: formContent?.data.name_placeholder ?? "",
-	improveLabel: formContent?.data.improve_label ?? "",
-	improvePlaceholder: formContent?.data.improve_placeholder ?? "",
-	experienceLabel: formContent?.data.experience_label ?? "",
-	experiencePlaceholder: formContent?.data.experience_placeholder ?? "",
-	locationLabel: formContent?.data.location_label ?? "",
-	locationOption1: formContent?.data.location_option_1 ?? "",
-	locationOption2: formContent?.data.location_option_2 ?? "",
-	locationOption3: formContent?.data.location_option_3 ?? "",
-	emailLabel: formContent?.data.email_label ?? "",
-	emailPlaceholder: formContent?.data.email_placeholder ?? "",
-	submitButton: formContent?.data.submit_button ?? "",
-	errorNameRequired: formContent?.data.error_name_required ?? "",
-	errorImproveRequired: formContent?.data.error_improve_required ?? "",
-	errorEmailRequired: formContent?.data.error_email_required ?? "",
-	errorEmailInvalid: formContent?.data.error_email_invalid ?? "",
-	errorLocationRequired: formContent?.data.error_location_required ?? "",
-	successMessage: formContent?.data.success_message ?? "",
-	captchaLabel: formContent?.data.captcha_label ?? "",
-	errorCooldown: formContent?.data.error_cooldown ?? "",
-	cooldownInfo: formContent?.data.cooldown_info ?? "",
-	info_2: formContent?.data.info_2 ?? "",
-};
 
 export const prerender = true;
 ---
@@ -117,18 +88,4 @@ export const prerender = true;
 			/>
 		</article>
 	</section>
-	<section class="w-full h-max flex justify-center items-center">
-		<article class="w-[50%] h-full mt-6 scroll-reveal">
-			<Badge message={homeContent?.data.warning_1 ?? ""} />
-		</article>
-	</section>
-	<section id="formulario-desktop" class="w-full h-max flex justify-center items-center">
-		<article class="w-[50%] h-full mt-6 mb-6 scroll-reveal">
-			<Accordion title="¡Vamos! - Toca aquí">
-				<ContactForm client:load texts={formTexts} />
-			</Accordion>
-		</article>
-	</section>
-	<!-- Footer Desktop-->
-	<FooterDesktop />
 </section>

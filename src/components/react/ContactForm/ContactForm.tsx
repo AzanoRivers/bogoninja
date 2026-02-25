@@ -253,6 +253,8 @@ export default function ContactForm({ texts, className = "" }: ContactFormProps)
             formRef.current?.reset();
             // Resetear CAPTCHA (genera nuevos números)
             setCaptchaResetKey(prev => prev + 1);
+            // Notificar al Accordion para que se cierre
+            formRef.current?.dispatchEvent(new CustomEvent('form:success', { bubbles: true }));
         } else if (state.fieldErrors) {
             // Hacer focus en el primer campo con error
             if (state.fieldErrors.name) {

@@ -31,18 +31,18 @@ const { title, className = "", defaultOpen = false } = Astro.props;
 const accordionId = `accordion-${crypto.randomUUID().slice(0, 8)}`;
 ---
 
-<div class={`accordion-container ${className}`}>
+<div class={`w-full ${className}`}>
     <button
         type="button"
         id={`${accordionId}-button`}
-        class="accordion-button sm:text-base md:text-xl lg:text-2xl xl:text-3xl"
+        class="accordion-button flex items-center justify-between w-full rounded cursor-pointer font-lato font-light text-ninja-light-pink sm:text-base sm:py-3 sm:px-3 md:text-xl md:py-4 md:px-5 lg:text-2xl lg:py-5.5 lg:px-6 xl:text-3xl"
         aria-expanded={defaultOpen}
         aria-controls={accordionId}
         data-accordion-trigger
     >
-        <span class="accordion-title">{title}</span>
+        <span class="text-left">{title}</span>
         <svg
-            class="accordion-icon accordion-icon-down"
+            class="accordion-icon accordion-icon-down shrink-0 text-ninja-light-pink transition-opacity duration-200 sm:w-5 sm:h-5 md:w-8 md:h-8 lg:w-9 lg:h-9"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -52,7 +52,7 @@ const accordionId = `accordion-${crypto.randomUUID().slice(0, 8)}`;
             <path d="M19 9L14 14.1599C13.7429 14.4323 13.4329 14.6493 13.089 14.7976C12.7451 14.9459 12.3745 15.0225 12 15.0225C11.6255 15.0225 11.2549 14.9459 10.9109 14.7976C10.567 14.6493 10.2571 14.4323 10 14.1599L5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <svg
-            class="accordion-icon accordion-icon-up"
+            class="accordion-icon accordion-icon-up shrink-0 text-ninja-light-pink transition-opacity duration-200 sm:w-5 sm:h-5 md:w-8 md:h-8 lg:w-9 lg:h-9"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -84,8 +84,16 @@ const accordionId = `accordion-${crypto.randomUUID().slice(0, 8)}`;
             if (trigger.hasAttribute('data-initialized')) return;
             trigger.setAttribute('data-initialized', 'true');
             
+            // Cerrar el accordion cuando el formulario interior se envía con éxito
+            const content = trigger.nextElementSibling as HTMLElement;
+            content?.addEventListener('form:success', () => {
+                setTimeout(() => {
+                    content.classList.remove('is-open');
+                    trigger.setAttribute('aria-expanded', 'false');
+                }, 1500);
+            });
+
             trigger.addEventListener('click', () => {
-                const content = trigger.nextElementSibling as HTMLElement;
                 const isOpen = content.classList.contains('is-open');
                 
                 // Toggle estado - CSS maneja la animación

@@ -67,18 +67,7 @@ const { targetId = "formulario-section", className = "" } = Astro.props;
         if (!button) return;
 
         button.addEventListener('click', function() {
-            // Buscar ambas instancias del formulario (mobile y desktop)
-            const mobileTarget = document.getElementById('formulario-mobile');
-            const desktopTarget = document.getElementById('formulario-desktop');
-            
-            // Determinar cuál está visible
-            let targetElement = null;
-            if (mobileTarget && mobileTarget.offsetParent !== null) {
-                targetElement = mobileTarget;
-            } else if (desktopTarget && desktopTarget.offsetParent !== null) {
-                targetElement = desktopTarget;
-            }
-
+            const targetElement = document.getElementById('formulario');
             if (!targetElement) return;
 
             targetElement.scrollIntoView({

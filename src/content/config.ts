@@ -36,6 +36,7 @@ const homeCollection = defineCollection({
     intro_desk_14: z.string().optional(),
     intro_desk_15: z.string().optional(),
     warning_1: z.string().optional(),
+    author_disclaimer: z.string().optional(),
   }),
 });
 
