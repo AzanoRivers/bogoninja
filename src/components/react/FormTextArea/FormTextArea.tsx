@@ -11,7 +11,7 @@
  * <FormTextArea 
  *   id="experience" 
  *   name="experience" 
- *   placeholder="Comparte tu experiencia"
+ *   placeholder="Comparte alguna anécdota "
  *   maxLength={500}
  *   rows={4}
  * />

@@ -132,7 +132,7 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 						<td style="padding:8px 32px;">
 							<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
 								Si deseas una sesión privada escríbeme, valor fijo de
-								<strong style="color:#d377f4;">30mil</strong>. Según lo que quieras lograr podemos llegar a un acuerdo.
+								<strong style="color:#d377f4;">35mil</strong>. Según lo que quieras lograr podemos llegar a un acuerdo.
 							</p>
 						</td>
 					</tr>

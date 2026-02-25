@@ -90,10 +90,93 @@ const formTexts = {
 	<section id="frequently-ask" class="w-full h-max scroll-reveal sm:mt-8 md:mt-6 sm:mb-8 lg:mb-24 xl:flex xl:justify-center xl:items-center px-2 xl:px-0">
 		<div class="w-full xl:w-[50%] xl:mb-6">
 			<Accordion title="Preguntas Frecuentes - FAQ">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-					Quisquam, modi. Odio hic, optio laudantium ipsam asperiores voluptatibus sint rem consequuntur odit 
-					ut beatae. Praesentium architecto doloribus saepe vero, tenetur consequuntur?
-				</p>
+				<div class="flex flex-col gap-5 px-1 py-2 font-lato">
+
+					<!-- Q1 -->
+					<div class="flex flex-col gap-1">
+						<p class="sm:text-xs md:text-sm lg:text-sm xl:text-base font-semibold text-ninja-light-pink">
+							¿Qué pasa cuando lleno el formulario?
+						</p>
+					<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
+							Con tu correo te enviaré datos de la siguiente sesión de práctica. Recibirás el lugar de la práctica, información adicional y medios de comunicación/pago para confirmar tu asistencia. En cada correo puedes desuscribirte a estas notificaciones.
+						</p>
+					</div>
+
+					<hr class="border-ninja-dark-pink/30" />
+
+					<!-- Q2 -->
+					<div class="flex flex-col gap-1">
+						<p class="sm:text-xs md:text-sm lg:text-sm xl:text-base font-semibold text-ninja-light-pink">
+							¿Qué voy a aprender?
+						</p>
+					<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
+							En cada sesión se trabajará el programa <span class="text-ninja-light-pink/80 font-normal">"Ninja Moderno"</span>, en términos simples: defensa personal, ataque, defensa y estrategia urbana. Si envías el formulario, leeré los detalles que ingreses en <span class="italic">"Qué quieres mejorar"</span>, ya que cada persona tiene una realidad y necesidades particulares.
+						</p>
+						<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed mt-1">
+							Las sesiones constan de teoría y práctica. La actividad física puede ser intensa dependiendo de las técnicas y métodos aplicados.
+						</p>
+					</div>
+
+					<hr class="border-ninja-dark-pink/30" />
+
+					<!-- Q3 -->
+					<div class="flex flex-col gap-1">
+						<p class="sm:text-xs md:text-sm lg:text-sm xl:text-base font-semibold text-ninja-light-pink">
+							¿Ninja moderno?
+						</p>
+						<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
+							Ser un Ninja moderno significa estar preparado para cualquier cotidianidad, riesgo, imprevisto. Usar la fuerza del espíritu y de tu personalidad para salir silenciosamente de situaciones donde todo puede salirse de control.
+						</p>
+						<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed mt-1">
+							El programa tiene <span class="text-ninja-light-pink/80 font-normal">8 pilares</span>, cada uno trabaja teoría y práctica. En cada sesión se trabaja un pilar:
+						</p>
+						<ul class="mt-1 flex flex-col gap-0.5 pl-3">
+							{["Autoconocimiento", "Equilibrio", "Habilidad", "Estrategia", "Defensa", "Ataque", "Invisibilidad", "Ninja"].map((pilar) => (
+								<li class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/60 flex items-center gap-2">
+									<span class="w-1 h-1 rounded-full bg-ninja-dark-pink/70 shrink-0"></span>
+									{pilar}
+								</li>
+							))}
+						</ul>
+					</div>
+
+					<hr class="border-ninja-dark-pink/30" />
+
+					<!-- Q4 -->
+					<div class="flex flex-col gap-1">
+						<p class="sm:text-xs md:text-sm lg:text-sm xl:text-base font-semibold text-ninja-light-pink">
+							¿Cuánto cuestan las sesiones?
+						</p>
+					<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
+							Cada fin de semana se realizan sesiones, tienen una duración de <span class="text-ninja-light-pink/80 font-normal">2 a 3 horas</span>. El costo es el que tú quieras darle, <span class="text-ninja-light-pink/80 font-normal">no son gratuitas</span>, nada en la vida lo es, pero puedes aportar un valor cómodo para ti. Las sesiones privadas tienen un valor de <span class="text-ninja-light-pink/80 font-normal">$35.000 COP</span>.
+						</p>
+					</div>
+
+					<hr class="border-ninja-dark-pink/30" />
+
+					<!-- Q5 -->
+					<div class="flex flex-col gap-1">
+						<p class="sm:text-xs md:text-sm lg:text-sm xl:text-base font-semibold text-ninja-light-pink">
+							¿Dónde se realizan las sesiones?
+						</p>
+					<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
+							Cada sesión tiene una duración de <span class="text-ninja-light-pink/80 font-normal">2 a 3 horas</span>. El programa Ninja Moderno está pensado para ser nómada, por lo tanto podrá ser en varias ubicaciones. Inicialmente: <span class="text-ninja-light-pink/80 font-normal">Parque Nacional, Modelia y Mosquera</span>.
+						</p>
+					</div>
+
+					<hr class="border-ninja-dark-pink/30" />
+
+					<!-- Q6 -->
+					<div class="flex flex-col gap-1">
+						<p class="sm:text-xs md:text-sm lg:text-sm xl:text-base font-semibold text-ninja-light-pink">
+							¿Hay sede?
+						</p>
+						<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
+							No. El programa Ninja Moderno está pensado para ser nómada. Tiene 3 ubicaciones iniciales: <span class="text-ninja-light-pink/80 font-normal">Parque Nacional, Modelia y Mosquera</span>.
+						</p>
+					</div>
+
+				</div>
 			</Accordion>
 		</div>
 	</section>
