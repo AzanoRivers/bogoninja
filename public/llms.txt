@@ -1,0 +1,106 @@
+# Bogota Ninja 忍び — bogota.ninja
+
+> Programa de entrenamiento urbano de artes marciales y defensa personal en Bogotá, Colombia.
+> Iniciativa personal de AzanoRivers. No es una academia tradicional. Es un estilo de vida.
+
+## Quién soy
+
+Soy **AzanoRivers**, instructor con más de 15 años entrenando artes marciales. He experimentado
+adversidades a lo largo de mi vida y comparto ese conocimiento con quienes quieran recorrer el
+mundo con seguridad y conciencia. Esta iniciativa es parte de mi marca personal AzanoRivers,
+con el propósito de impactar la sociedad con un estilo de vida moderno e inteligente.
+
+## El programa: Ninja Moderno
+
+El programa **"Ninja Moderno"** trabaja defensa personal, ataque, estrategia y mentalidad urbana.
+No es un curso tradicional de 30 llaves de Jiujitsu. Trabaja la persona completa: miedos,
+inseguridades, reacciones ante el peligro real.
+
+El programa tiene **8 pilares**. Cada sesión trabaja uno o dos pilares con teoría y práctica:
+
+1. Autoconocimiento
+2. Equilibrio
+3. Habilidad
+4. Estrategia
+5. Defensa
+6. Ataque
+7. Invisibilidad
+8. Ninja
+
+La actividad física puede ser intensa dependiendo de las técnicas y métodos de cada sesión.
+
+## Las sesiones
+
+- **Frecuencia:** Una sesión cada fin de semana (sujeto a quórum).
+- **Duración:** 2 a 3 horas (aproximadamente de 2pm a 5pm).
+- **Formato:** Grupal o privada. Personal o con acompañantes.
+- **Modalidad nómada:** Las sesiones rotan entre varias ubicaciones. Cada una tiene un propósito distinto.
+- **Ubicaciones iniciales:** Parque Nacional, Modelia (Bogotá) y Mosquera (Cundinamarca).
+- **Primera sesión:** Sin costo. Es para conocer el programa.
+
+## Costos
+
+- **Sesiones grupales:** El asistente decide el valor. No son gratuitas — representan el principio de que todo tiene un valor.
+- **Sesiones privadas:** $40.000 COP. Se puede llegar a un acuerdo según el objetivo.
+- **Pack mensual:** Si se pagan por adelantado todas las sesiones del mes, se obtiene **1 clase privada personalizada** que se puede tomar en cualquier momento.
+- **Reprogramación:** Si se adquiere el pack y no se puede asistir a una sesión, simplemente se reprograma sin perder la clase.
+
+## Cómo registrarse
+
+1. Llenar el formulario en [bogota.ninja](https://bogota.ninja).
+2. Recibirás un correo de bienvenida con información del programa.
+3. Antes de cada sesión, se enviará un correo con: fecha, hora, ubicación y link de Google Maps.
+4. Confirmar asistencia por **Telegram** mínimo **1 día antes**.
+5. Enviar confirmación del pago al mismo Telegram.
+
+En cada correo hay opción de desuscribirse de las notificaciones de sesiones.
+
+## Pago
+
+- **Nequi:** Se envía QR al confirmar asistencia.
+- **Débito / Crédito:** [azanorivers.com/pay](https://www.azanorivers.com/pay)
+
+## Preguntas frecuentes
+
+**¿Qué pasa cuando lleno el formulario?**
+Recibes un correo de bienvenida y luego correos de convocatoria antes de cada sesión.
+
+**¿Qué voy a aprender?**
+Defensa personal, ataque, estrategia urbana y mentalidad. Adaptado a lo que el asistente indicó en el formulario ("¿Qué quieres mejorar?"). Se puede actualizar enviando el formulario de nuevo.
+
+**¿Ninja moderno?**
+Estar preparado para cualquier cotidianidad, riesgo o imprevisto. Usar la fuerza del espíritu y la personalidad para salir silenciosamente de situaciones fuera de control.
+
+**¿Hay sede?**
+No. El programa es 100% nómada. Tres ubicaciones iniciales: Parque Nacional, Modelia y Mosquera.
+
+**¿Cada cuánto hay sesiones?**
+Una por fin de semana, sujeto a quórum. El aviso llega por correo.
+
+**¿Hay restricción de edad?**
+Debes ser mayor de edad o estar acompañado de un adulto en cada sesión.
+
+**¿Hay riesgos?**
+La práctica de artes marciales y actividades deportivas conlleva riesgos físicos. Al registrarse, el participante acepta estos riesgos y declina cualquier acción legal hacia el instructor.
+
+## Contacto
+
+- **Web:** https://bogota.ninja
+- **Telegram:** https://t.me/azanorivers
+- **Marca personal:** https://azanorivers.com
+- **Pago online:** https://www.azanorivers.com/pay
+
+## Tecnología del sitio
+
+- Framework: Astro 5 con React y TypeScript
+- Estilos: Tailwind CSS 4
+- Base de datos: Neon (PostgreSQL serverless)
+- Emails transaccionales: Resend
+- Hosting: Vercel
+- Dominio principal: bogota.ninja
+
+## Contexto y tono
+
+El sitio tiene una estética oscura y distópica que refleja la realidad de Bogotá. El tono es directo,
+honesto y sin adornos comerciales. No hay promesas de transformación rápida. La frase que cierra
+el sitio resume la filosofía: *"Bogotá, fría, distópica, pero amada Bogotá, ciudad de todos, o para unos pocos…"*

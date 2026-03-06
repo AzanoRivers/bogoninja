@@ -2,15 +2,18 @@
  * API: POST /api/admin/session-email
  *
  * @description
- * Envío masivo del correo de sesión a todos los ninjas registrados.
+ * Envío del correo de sesión — masivo a todos los ninjas o individual a uno.
  * Ruta protegida — requiere sesión válida (verificado en middleware).
  *
  * Body esperado:
  * {
- *   fecha:    string  // DD-MM  ej. "01-03"
- *   hora:     string  // HH:MM  ej. "07:00"
- *   location: string  // nombre del lugar
- *   mapsLink: string  // URL de Google Maps
+ *   fecha:            string   // DD-MM  ej. "01-03"
+ *   hora:             string   // HH:MM  ej. "07:00"
+ *   location:         string   // nombre del lugar
+ *   mapsLink:         string   // URL de Google Maps
+ *   parkingBikesLink?: string  // URL Google Maps parqueo bicicletas (opcional)
+ *   parkingMotosLink?: string  // URL Google Maps parqueo motos (opcional)
+ *   targetEmail?:     string   // Si se indica, enviar solo a ese correo
  * }
  *
  * @author AzanoRivers
@@ -41,12 +44,15 @@ interface SessionEmailBody {
 	hora: string;
 	location: string;
 	mapsLink: string;
+	parkingBikesLink?: string;
+	parkingMotosLink?: string;
+	targetEmail?: string;
 }
 
 export const POST: APIRoute = async ({ request }) => {
 	try {
 		const body: SessionEmailBody = await request.json();
-		const { fecha, hora, location, mapsLink } = body;
+		const { fecha, hora, location, mapsLink, parkingBikesLink, parkingMotosLink, targetEmail } = body;
 
 		if (!fecha || !hora || !location || !mapsLink) {
 			return new Response(
@@ -55,7 +61,44 @@ export const POST: APIRoute = async ({ request }) => {
 			);
 		}
 
-		// Obtener todos los ninjas con email y nombre
+		// ── ENVÍO INDIVIDUAL ──────────────────────────────────────────────
+		if (targetEmail) {
+			const rows = await sql`
+				SELECT email, name FROM ninja_registrations WHERE email = ${targetEmail} LIMIT 1
+			`;
+			const ninja = (rows as Array<{ email: string; name: string }>)[0];
+			const apodo = ninja?.name ?? 'Ninja';
+
+			const { error } = await resend.emails.send({
+				from: import.meta.env.RESEND_SENDER,
+				to: targetEmail,
+				subject: '🥷 Siguiente Sesión - Bogota.ninja!',
+				html: generateSesionEmail({
+					apodo,
+					fecha,
+					hora,
+					location,
+					mapsLink,
+					parkingBikesLink,
+					parkingMotosLink,
+					email: targetEmail,
+				}),
+			});
+
+			if (error) {
+				return new Response(
+					JSON.stringify({ error: error.message }),
+					{ status: 500, headers: { 'Content-Type': 'application/json' } }
+				);
+			}
+
+			return new Response(
+				JSON.stringify({ success: true, sent: 1, total: 1 }),
+				{ status: 200, headers: { 'Content-Type': 'application/json' } }
+			);
+		}
+
+		// ── ENVÍO MASIVO ──────────────────────────────────────────────────
 		const ninjas = await sql`
 			SELECT email, name FROM ninja_registrations ORDER BY created_at ASC
 		`;
@@ -78,6 +121,8 @@ export const POST: APIRoute = async ({ request }) => {
 				hora,
 				location,
 				mapsLink,
+				parkingBikesLink,
+				parkingMotosLink,
 				email: ninja.email,
 			}),
 		}));

@@ -28,6 +28,10 @@ interface SesionEmailData {
 	location: string;
 	/** URL del link de Google Maps */
 	mapsLink: string;
+	/** URL de Google Maps para parquear bicicletas (opcional) */
+	parkingBikesLink?: string;
+	/** URL de Google Maps para parquear motos (opcional) */
+	parkingMotosLink?: string;
 	/** Email del destinatario — se usa para generar el link de desuscripción */
 	email: string;
 	/**
@@ -54,7 +58,7 @@ function formatHora(horaHHMM: string): string {
 }
 
 export function generateSesionEmail(data: SesionEmailData): string {
-	const { apodo, fecha, hora, location, mapsLink, email, baseUrl = 'https://bogota.ninja' } = data;
+	const { apodo, fecha, hora, location, mapsLink, parkingBikesLink, parkingMotosLink, email, baseUrl = 'https://bogota.ninja' } = data;
 	const unsubscribeUrl = generateUnsubscribeUrl(email);
 	const fechaLarga = formatFecha(fecha);
 	const horaFormateada = formatHora(hora);
@@ -184,11 +188,33 @@ export function generateSesionEmail(data: SesionEmailData): string {
 						</td>
 					</tr>
 					<tr>
-						<td style="padding:8px 32px 24px;">
+						<td style="padding:8px 32px 12px;">
 							<a href="${mapsLink}"
 								style="display:inline-block; background:rgba(37,123,184,0.15); border:1px solid rgba(37,123,184,0.4); border-radius:6px; padding:9px 18px; text-decoration:none; color:#7ec8f5; font-size:13px; font-weight:600; letter-spacing:0.5px;">
 								📍 Abrir en Google Maps
 							</a>
+						</td>
+					</tr>
+
+					<!-- ══ PARQUEADERO ══ -->
+					<tr>
+						<td style="padding:8px 32px 24px;">
+							<table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+								style="background:rgba(37,123,184,0.08); border:1px solid rgba(37,123,184,0.3); border-radius:10px;">
+								<tr>
+									<td style="padding:16px 20px;">
+										<p style="margin:0 0 12px; font-size:11px; color:rgba(126,200,245,0.7); letter-spacing:3px; text-transform:uppercase;">🅿️ Parqueo cercano</p>
+										<table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+											<tr><td style="padding-bottom:10px;">
+												<a href="${parkingBikesLink ?? '#'}" style="display:inline-block; background:rgba(37,123,184,0.15); border:1px solid rgba(37,123,184,0.4); border-radius:6px; padding:9px 18px; text-decoration:none; color:#7ec8f5; font-size:13px; font-weight:600; letter-spacing:0.5px;">🚲 Parqueo para Bicicletas</a>
+											</td></tr>
+											<tr><td>
+												<a href="${parkingMotosLink ?? '#'}" style="display:inline-block; background:rgba(37,123,184,0.15); border:1px solid rgba(37,123,184,0.4); border-radius:6px; padding:9px 18px; text-decoration:none; color:#7ec8f5; font-size:13px; font-weight:600; letter-spacing:0.5px;">🏍️ Parqueo para Motos</a>
+											</td></tr>
+										</table>
+									</td>
+								</tr>
+							</table>
 						</td>
 					</tr>
 
@@ -251,6 +277,47 @@ export function generateSesionEmail(data: SesionEmailData): string {
 									</tr>
 								</table>
 							</a>
+						</td>
+					</tr>
+
+					<!-- ══ NOTA: PACK DE SESIONES ══ -->
+					<tr>
+						<td style="padding:8px 32px 8px;">
+							<table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+								style="background:rgba(171,91,199,0.15); border:1px solid rgba(211,119,244,0.45); border-radius:10px;">
+								<tr>
+									<td style="padding:18px 22px;">
+										<p style="margin:0 0 8px; font-size:11px; color:rgba(211,119,244,0.7); letter-spacing:3px; text-transform:uppercase;">💡 Pack de sesiones</p>
+										<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
+											Si pagas por adelantado las sesiones del mes obtienes
+											<strong style="color:#d377f4;">1 clase privada personalizada</strong>
+											que puedes tomar cuando quieras. ¡Escríbeme y lo coordinamos!
+										</p>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+
+					<!-- ══ NOTA: PREGUNTAS FRECUENTES ══ -->
+					<tr>
+						<td style="padding:8px 32px 24px;">
+							<table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+								style="background:rgba(37,123,184,0.1); border:1px solid rgba(37,123,184,0.35); border-radius:10px;">
+								<tr>
+									<td style="padding:18px 22px;">
+										<p style="margin:0 0 8px; font-size:11px; color:rgba(126,200,245,0.7); letter-spacing:3px; text-transform:uppercase;">❓ Preguntas frecuentes</p>
+										<p style="margin:0 0 14px; font-size:15px; line-height:1.75; color:#e3edf6;">
+											¿Tienes dudas? Al final de la página encontrarás una sección con las
+											<strong style="color:#7ec8f5;">preguntas más comunes</strong>.
+										</p>
+										<a href="https://bogota.ninja/#faq"
+											style="display:inline-block; background:rgba(37,123,184,0.15); border:1px solid rgba(37,123,184,0.4); border-radius:6px; padding:9px 20px; text-decoration:none; color:#7ec8f5; font-size:13px; font-weight:600; letter-spacing:0.5px;">
+											Ver preguntas frecuentes →
+										</a>
+									</td>
+								</tr>
+							</table>
 						</td>
 					</tr>
 

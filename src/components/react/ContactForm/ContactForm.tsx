@@ -298,7 +298,7 @@ export default function ContactForm({ texts, className = "" }: ContactFormProps)
                     id={improveId}
                     name="improve"
                     placeholder={texts.improvePlaceholder}
-                    maxLength={100}
+                    maxLength={300}
                     rows={2}
                     defaultValue={state?.values?.improve || ''}
                 />
@@ -311,7 +311,7 @@ export default function ContactForm({ texts, className = "" }: ContactFormProps)
                     id={experienceId}
                     name="experience"
                     placeholder={texts.experiencePlaceholder}
-                    maxLength={500}
+                    maxLength={1500}
                     rows={4}
                     defaultValue={state?.values?.experience || ''}
                 />

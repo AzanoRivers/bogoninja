@@ -9,8 +9,8 @@
  * - id: clave primaria auto-incremental
  * - email: identificador único del registro (máx 80 caracteres)
  * - name: nombre o apodo del ninja (máx 60 caracteres)
- * - improve: qué quiere mejorar (máx 100 caracteres)
- * - experience: experiencia que quiere compartir (máx 500 caracteres, opcional)
+ * - improve: qué quiere mejorar (máx 300 caracteres)
+ * - experience: experiencia que quiere compartir (máx 1500 caracteres, opcional)
  * - location: ubicación preferida (modelia, parque-nacional, mosquera)
  * - created_at: fecha de creación del registro
  * - updated_at: fecha de última actualización
@@ -37,7 +37,7 @@ async function createTable() {
                 id BIGSERIAL PRIMARY KEY,
                 email VARCHAR(80) UNIQUE NOT NULL,
                 name VARCHAR(60) NOT NULL,
-                improve VARCHAR(100) NOT NULL,
+                improve VARCHAR(300) NOT NULL,
                 experience TEXT,
                 location VARCHAR(50) NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

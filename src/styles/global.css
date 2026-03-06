@@ -19,7 +19,8 @@
 	--color-ninja-white: #e3edf6;
 
 	/* Font Families */
-	--font-joti: "Joti One", cursive;
+	/* Joti One = Latin. Para glifos CJK (忍び) se usa el fallback del sistema */
+	--font-joti: "Joti One", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif;
 	--font-lato: "Lato", system-ui, sans-serif;
 
 	/* Custom Breakpoints */

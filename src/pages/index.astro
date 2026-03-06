@@ -87,7 +87,8 @@ const formTexts = {
 	<FloatingFormButton />
 
 	<!-- Accordeon preguntas frecuentes -->
-	<section id="frequently-ask" class="w-full h-max sm:mt-8 md:mt-6 sm:mb-8 lg:mb-24 xl:flex xl:justify-center xl:items-center px-2 xl:px-0">
+	<div id="faq" class="w-full h-4"></div>
+	<section class="w-full h-max sm:mb-8 lg:mb-24 xl:flex xl:justify-center xl:items-center px-2 xl:px-0">
 		<div class="w-full xl:w-[50%] xl:mb-6">
 			<Accordion title="Preguntas Frecuentes - FAQ">
 				<div class="flex flex-col gap-5 px-1 py-2 font-lato">
@@ -128,7 +129,7 @@ const formTexts = {
 							Ser un Ninja moderno significa estar preparado para cualquier cotidianidad, riesgo, imprevisto. Usar la fuerza del espíritu y de tu personalidad para salir silenciosamente de situaciones donde todo puede salirse de control.
 						</p>
 						<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed mt-1">
-							El programa tiene <span class="text-ninja-light-pink/80 font-normal">8 pilares</span>, cada uno trabaja teoría y práctica. En cada sesión se trabaja un pilar:
+							El programa tiene <span class="text-ninja-light-pink/80 font-normal">8 pilares</span>, cada uno trabaja teoría y práctica. En cada sesión se trabajan 2 pilares:
 						</p>
 						<ul class="mt-1 flex flex-col gap-0.5 pl-3">
 							{["Autoconocimiento", "Equilibrio", "Habilidad", "Estrategia", "Defensa", "Ataque", "Invisibilidad", "Ninja"].map((pilar) => (
@@ -147,8 +148,11 @@ const formTexts = {
 						<p class="sm:text-xs md:text-sm lg:text-sm xl:text-base font-semibold text-ninja-light-pink">
 							¿Cuánto cuestan las sesiones?
 						</p>
-					<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
-							Cada fin de semana se realizan sesiones, tienen una duración de <span class="text-ninja-light-pink/80 font-normal">2 a 3 horas</span>. El costo es el que tú quieras darle, <span class="text-ninja-light-pink/80 font-normal">no son gratuitas</span>, nada en la vida lo es, pero puedes aportar un valor cómodo para ti. Las sesiones privadas tienen un valor de <span class="text-ninja-light-pink/80 font-normal">$35.000 COP</span>.
+						<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
+							Cada fin de semana se realizan sesiones, tienen una duración de <span class="text-ninja-light-pink/80 font-normal">2 a 3 horas</span>. El costo es el que tú quieras darle, <span class="text-ninja-light-pink/80 font-normal">no son gratuitas</span>, nada en la vida lo es, pero puedes aportar un valor cómodo para ti. Las sesiones privadas tienen un valor de <span class="text-ninja-light-pink/80 font-normal">$40.000 COP</span>.
+						</p>
+						<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed mt-1">
+							Si pagas por adelantado todas las sesiones del mes, obtienes <span class="text-ninja-light-pink/80 font-normal">1 clase privada personalizada</span> que puedes tomar cuando quieras. Y si por algún motivo no puedes asistir a una sesión, <span class="text-ninja-light-pink/80 font-normal">simplemente se reprograma</span>, sin perder la clase.
 						</p>
 					</div>
 
@@ -160,7 +164,7 @@ const formTexts = {
 							¿Dónde se realizan las sesiones?
 						</p>
 					<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
-							Cada sesión tiene una duración de <span class="text-ninja-light-pink/80 font-normal">2 a 3 horas</span>. El programa Ninja Moderno está pensado para ser nómada, por lo tanto podrá ser en varias ubicaciones. Inicialmente: <span class="text-ninja-light-pink/80 font-normal">Parque Nacional, Modelia y Mosquera</span>.
+							Cada sesión tiene una duración de <span class="text-ninja-light-pink/80 font-normal">2 a 3 horas, de 2pm a 5 pm</span>. El programa Ninja Moderno está pensado para ser nómada, por lo tanto podrá ser en varias ubicaciones. Inicialmente: <span class="text-ninja-light-pink/80 font-normal">Parque Nacional, Modelia y Mosquera</span>.
 						</p>
 					</div>
 
@@ -172,7 +176,10 @@ const formTexts = {
 							¿Hay sede?
 						</p>
 						<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
-							No. El programa Ninja Moderno está pensado para ser nómada. Tiene 3 ubicaciones iniciales: <span class="text-ninja-light-pink/80 font-normal">Parque Nacional, Modelia y Mosquera</span>.
+							No. El programa Ninja Moderno está pensado para ser nómada. Tiene 3 ubicaciones iniciales: <span class="text-ninja-light-pink/80 font-normal">Parque Nacional, Modelia y Mosquera</span>. 
+						</p>
+						<p class="sm:text-xs md:text-xs lg:text-sm xl:text-sm font-light text-ninja-white/70 leading-relaxed">
+							Cada ubicación tiene una proposito. Es importante que puedas asistir a las sesiones en cualquiera de las ubicaciones.
 						</p>
 					</div>
 
@@ -190,5 +197,35 @@ const formTexts = {
 			{homeContent?.data.author_disclaimer ?? ""}
 		</p>
 	</section>
+
+	<!-- Script: abrir FAQ si el hash es #faq -->
+	<script>
+		function handleFaqHash() {
+			if (window.location.hash !== '#faq') return;
+			const faqSection = document.getElementById('faq');
+			if (!faqSection) return;
+			const trigger = faqSection.querySelector<HTMLButtonElement>('[data-accordion-trigger]');
+			if (!trigger) return;
+			// Abrir el acordeón si está cerrado
+			if (trigger.getAttribute('aria-expanded') !== 'true') {
+				trigger.click();
+			}
+			// Esperar la animación del acordeón y luego scrollear
+			setTimeout(() => {
+				faqSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}, 150);
+		}
+
+		// Al cargar la página
+		document.addEventListener('astro:page-load', handleFaqHash);
+		// Fallback para navegación directa
+		if (document.readyState === 'complete') {
+			handleFaqHash();
+		} else {
+			window.addEventListener('load', handleFaqHash);
+		}
+		// Al cambiar el hash mientras se está en la página
+		window.addEventListener('hashchange', handleFaqHash);
+	</script>
 
 </MainLayout>

@@ -66,13 +66,13 @@ export default function LoginForm({ expired = false }: LoginFormProps) {
 
 				{/* Logo */}
 				<div className="text-center mb-8">
-					<a href="/" className="inline-block no-underline">
-						<span className="font-joti text-4xl lg:text-5xl text-ninja-white tracking-widest"
+					<a href="/" className="inline-flex items-end no-underline">
+						<span className="font-joti text-4xl lg:text-5xl text-ninja-white"
 							style={{ textShadow: '0 0 14px rgba(227,237,246,0.25)' }}>
 							Bogot
 						</span>
-						<span className="font-joti text-4xl lg:text-5xl text-ninja-light-pink"
-							style={{ textShadow: '0 0 14px rgba(211,119,244,0.6)' }}>
+						<span className="font-joti text-4xl lg:text-5xl text-ninja-light-pink leading-none"
+							style={{ writingMode: 'vertical-rl', textShadow: '0 0 14px rgba(211,119,244,0.6)' }}>
 							忍び
 						</span>
 					</a>

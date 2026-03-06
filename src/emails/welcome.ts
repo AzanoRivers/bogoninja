@@ -96,6 +96,11 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 								<strong style="color:#d377f4;">"Qué quieres mejorar"</strong>.
 								Puedes actualizar tus datos enviándolo nuevamente.
 							</p>
+							<p style="margin:0; font-size:15px; line-height:1.7; color:#e3edf6;">
+								Recuerda que si es tu
+								<strong style="color:#d377f4;">primera sesión</strong>
+								puedes asistir sin costo.
+							</p>
 						</td>
 					</tr>
 
@@ -121,7 +126,7 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 					<tr>
 						<td style="padding:8px 32px;">
 							<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
-								Las sesiones tienen una duración de <strong style="color:#d377f4;">2 a 3 horas</strong>. Los fines de semana
+								Las sesiones tienen una duración de <strong style="color:#d377f4;">2 a 3 horas, entre 2 pm a 5 pm</strong>. Los fines de semana
 								tú pones el precio. Para mí lo más importante es darte valor real.
 							</p>
 						</td>
@@ -132,7 +137,7 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 						<td style="padding:8px 32px;">
 							<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
 								Si deseas una sesión privada escríbeme, valor fijo de
-								<strong style="color:#d377f4;">35mil</strong>. Según lo que quieras lograr podemos llegar a un acuerdo.
+								<strong style="color:#d377f4;">40mil</strong>. Según lo que quieras lograr podemos llegar a un acuerdo.
 							</p>
 						</td>
 					</tr>
@@ -141,10 +146,51 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 					<tr>
 						<td style="padding:8px 32px 24px;">
 							<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
-								Recuerda que esto es una iniciativa para desarrollar mi marca
+								Recuerda que esto es una iniciativa de mi marca
 								<strong style="color:#d377f4;">AzanoRivers</strong>,
-								impactando la sociedad con un estilo de vida moderno e inteligente. ¡Sé un Ninja Moderno!
+								impactando la sociedad con un estilo de vida moderno e inteligente.
 							</p>
+						</td>
+					</tr>
+
+					<!-- ══ NOTA: PACK DE SESIONES ══ -->
+					<tr>
+						<td style="padding:16px 32px 8px;">
+							<table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+								style="background:rgba(171,91,199,0.15); border:1px solid rgba(211,119,244,0.45); border-radius:10px;">
+								<tr>
+									<td style="padding:18px 22px;">
+										<p style="margin:0 0 8px; font-size:11px; color:rgba(211,119,244,0.7); letter-spacing:3px; text-transform:uppercase;">💡 Pack de sesiones</p>
+										<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
+											Si pagas por adelantado las sesiones del mes obtienes
+											<strong style="color:#d377f4;">1 clase privada personalizada</strong>
+											que puedes tomar cuando quieras. ¡Escríbeme y lo coordinamos!
+										</p>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+
+					<!-- ══ NOTA: PREGUNTAS FRECUENTES ══ -->
+					<tr>
+						<td style="padding:8px 32px 24px;">
+							<table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+								style="background:rgba(37,123,184,0.1); border:1px solid rgba(37,123,184,0.35); border-radius:10px;">
+								<tr>
+									<td style="padding:18px 22px;">
+										<p style="margin:0 0 8px; font-size:11px; color:rgba(126,200,245,0.7); letter-spacing:3px; text-transform:uppercase;">❓ Preguntas frecuentes</p>
+										<p style="margin:0 0 14px; font-size:15px; line-height:1.75; color:#e3edf6;">
+											¿Tienes dudas? Al final de la página encontrarás una sección con las
+											<strong style="color:#7ec8f5;">preguntas más comunes</strong>.
+										</p>
+										<a href="https://bogota.ninja/#faq"
+											style="display:inline-block; background:rgba(37,123,184,0.15); border:1px solid rgba(37,123,184,0.4); border-radius:6px; padding:9px 20px; text-decoration:none; color:#7ec8f5; font-size:13px; font-weight:600; letter-spacing:0.5px;">
+											Ver preguntas frecuentes →
+										</a>
+									</td>
+								</tr>
+							</table>
 						</td>
 					</tr>
 

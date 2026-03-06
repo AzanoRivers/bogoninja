@@ -53,13 +53,13 @@ export default function Dashboard({ ninjas, adminEmail }: DashboardProps) {
 		<div className="max-w-240 mx-auto flex items-center justify-between gap-4">
 
 					{/* Logo */}
-					<a href="/" className="no-underline shrink-0">
+					<a href="/" className="inline-flex items-end no-underline shrink-0">
 						<span className="font-joti text-2xl xl:text-3xl text-ninja-white"
 							style={{ textShadow: '0 0 10px rgba(227,237,246,0.2)' }}>
 							Bogot
 						</span>
-						<span className="font-joti text-2xl xl:text-3xl text-ninja-light-pink"
-							style={{ textShadow: '0 0 10px rgba(211,119,244,0.5)' }}>
+						<span className="font-joti text-2xl xl:text-3xl text-ninja-light-pink leading-none"
+							style={{ writingMode: 'vertical-rl', textShadow: '0 0 10px rgba(211,119,244,0.5)' }}>
 							忍び
 						</span>
 					</a>
@@ -92,9 +92,9 @@ export default function Dashboard({ ninjas, adminEmail }: DashboardProps) {
 							{ninjas.length}
 						</p>
 					</div>
-					<div className="ml-auto">
+					<div className="ml-auto" style={{ writingMode: 'vertical-rl' }}>
 						<span className="font-joti text-5xl xl:text-6xl text-ninja-light-pink/20">
-							忍
+							忍び
 						</span>
 					</div>
 				</div>
