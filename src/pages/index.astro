@@ -6,6 +6,35 @@ import { getEntry } from 'astro:content';
 // Pre-renderizar esta página como estática (equivalente a hybrid mode)
 export const prerender = true;
 
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'AzanoRivers',
+	alternateName: 'Azano Rivers',
+	url: 'https://bogota.ninja',
+	jobTitle: 'Instructor de Artes Marciales, Defensa Personal y Ninja Moderno',
+	description: 'Instructor con más de 15 años entrenando artes marciales. Fundador de Bogotá Ninja, programa de estrategia urbana, confianza personal y defensa real en Bogotá, Colombia.',
+	knowsAbout: [
+		'Artes Marciales',
+		'Defensa Personal',
+		'Estrategia Urbana',
+		'KungFu',
+		'Desarrollo Personal',
+		'Seguridad Personal',
+	],
+	worksFor: {
+		'@type': 'Organization',
+		name: 'Bogotá Ninja',
+		url: 'https://bogota.ninja',
+	},
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Bogotá',
+		addressRegion: 'Cundinamarca',
+		addressCountry: 'CO',
+	},
+};
+
 const homeContent = await getEntry('home', 'es');
 const formContent = await getEntry('form', 'es');
 
@@ -36,7 +65,7 @@ const formTexts = {
 };
 ---
 
-<MainLayout>
+<MainLayout schema={personSchema}>
 	<!-- Headers Mobile/Desktop -->
 	<Header className="xl:hidden w-full sticky top-0 z-50 bg-ninja-dark-blue/80 rounded-b-xl" />
 	<!-- VideoBox Desktop -->

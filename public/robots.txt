@@ -1,0 +1,37 @@
+# =============================================
+#  Bogotá Ninja — bogota.ninja
+#  robots.txt
+# =============================================
+
+User-agent: *
+
+# ── Permitir todo el contenido público ───────
+Allow: /
+
+# ── Panel de administración ──────────────────
+Disallow: /dashboard
+Disallow: /login
+
+# ── Páginas de uso interno / utilidades ──────
+Disallow: /sesion
+Disallow: /hola
+Disallow: /unsubscribe
+
+# ── API endpoints ────────────────────────────
+Disallow: /api/
+
+# ── Bloquear bots agresivos conocidos ────────
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# ── Sitemap ──────────────────────────────────
+Sitemap: https://bogota.ninja/sitemap-index.xml

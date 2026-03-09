@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 
@@ -13,7 +14,19 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
   
-  integrations: [react()],
+  integrations: [
+    react(),
+    sitemap({
+      // Excluir páginas privadas / utilitarias
+      filter: (page) => ![
+        'https://bogota.ninja/dashboard/',
+        'https://bogota.ninja/login/',
+        'https://bogota.ninja/sesion/',
+        'https://bogota.ninja/hola/',
+        'https://bogota.ninja/unsubscribe/',
+      ].includes(page),
+    }),
+  ],
 
   vite: {
     plugins: [tailwindcss()],

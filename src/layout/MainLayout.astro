@@ -8,6 +8,7 @@ interface Props {
 	keywords?: string;
 	ogImage?: string;
 	noIndex?: boolean;
+	schema?: Record<string, unknown>;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
 	keywords = 'ninja moderno, desarrollo personal Bogotá, confianza personal, seguridad personal, manejo del miedo, AzanoRivers, Azano Rivers, crecimiento personal, estrategia urbana, entrenamiento personal Bogotá, superación personal, defensa personal Bogotá',
 	ogImage = new URL('/bogoninja.png', Astro.site).href,
 	noIndex = false,
+	schema,
 } = Astro.props;
 
 const pageUrl = Astro.url.href;
@@ -30,11 +32,13 @@ const pageUrl = Astro.url.href;
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="keywords" content={keywords} />
-		{noIndex && (
+		{noIndex ? (
 			<>
 				<meta name="robots" content="noindex, nofollow" />
 				<meta name="googlebot" content="noindex, nofollow" />
 			</>
+		) : (
+			<link rel="canonical" href={pageUrl} />
 		)}
 		
 		<!-- Open Graph / Facebook -->
@@ -54,6 +58,9 @@ const pageUrl = Astro.url.href;
 		<meta name="twitter:image" content={ogImage} />
 		
 		<title>{title}</title>
+		{schema && (
+			<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+		)}
 	</head>
 	<body class="bg-ninja-dark-blue min-h-dvh w-full m-0 text-ninja-white font-lato">
 		<slot />
