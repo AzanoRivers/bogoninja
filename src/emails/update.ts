@@ -24,7 +24,7 @@ export function generateUpdateEmail(data: UpdateEmailData): string {
 	const locationNames: Record<string, string> = {
 		'modelia': 'Modelia',
 		'parque-nacional': 'Parque Nacional',
-		'mosquera': 'Mosquera'
+		'madrid': 'Madrid'
 	};
 
 	return `<!DOCTYPE html>

@@ -232,7 +232,7 @@ export default function ContactForm({ texts, className = "" }: ContactFormProps)
     const locationOptions = [
         { value: "modelia", label: texts.locationOption1 },
         { value: "parque-nacional", label: texts.locationOption2 },
-        { value: "mosquera", label: texts.locationOption3 }
+        { value: "madrid", label: texts.locationOption3 }
     ];
 
     // Estado para validación de CAPTCHA

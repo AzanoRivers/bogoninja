@@ -12,7 +12,7 @@
  *   options={[
  *     { value: "modelia", label: "Modelia" },
  *     { value: "parque-nacional", label: "Parque Nacional" },
- *     { value: "mosquera", label: "Mosquera" }
+ *     { value: "madrid", label: "Madrid" }
  *   ]}
  * />
  * 

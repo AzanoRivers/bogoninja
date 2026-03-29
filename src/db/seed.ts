@@ -11,7 +11,7 @@
  * - name: nombre o apodo del ninja (máx 60 caracteres)
  * - improve: qué quiere mejorar (máx 300 caracteres)
  * - experience: experiencia que quiere compartir (máx 1500 caracteres, opcional)
- * - location: ubicación preferida (modelia, parque-nacional, mosquera)
+ * - location: ubicación preferida (modelia, parque-nacional, madrid)
  * - created_at: fecha de creación del registro
  * - updated_at: fecha de última actualización
  * 

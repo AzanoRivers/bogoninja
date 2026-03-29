@@ -15,7 +15,7 @@ import toast from 'react-hot-toast';
 const LOCATION_NAMES: Record<string, string> = {
 	'modelia': 'Modelia',
 	'parque-nacional': 'Parque Nacional',
-	'mosquera': 'Mosquera',
+	'madrid': 'Madrid',
 };
 
 function formatDate(dateStr: string): string {

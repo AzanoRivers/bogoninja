@@ -15,7 +15,7 @@
  *     { value: "", label: "Selecciona un lugar" },
  *     { value: "modelia", label: "Modelia" },
  *     { value: "parque", label: "Parque Nacional" },
- *     { value: "mosquera", label: "Mosquera" }
+ *     { value: "madrid", label: "Madrid" }
  *   ]}
  * />
  * ```
