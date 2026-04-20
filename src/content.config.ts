@@ -1,7 +1,9 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const homeCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/home' }),
   schema: z.object({
     intro_1: z.string().optional(),
     intro_2: z.string().optional(),
@@ -42,7 +44,7 @@ const homeCollection = defineCollection({
 });
 
 const errorsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/errors' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -51,7 +53,7 @@ const errorsCollection = defineCollection({
 });
 
 const formCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/form' }),
   schema: z.object({
     name_label: z.string().optional(),
     name_placeholder: z.string().optional(),
