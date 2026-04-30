@@ -118,7 +118,7 @@ export async function sendFormNotification(data: FormNotificationData): Promise<
 		const locationNames: Record<string, string> = {
 			'modelia': 'Modelia',
 			'parque-nacional': 'Parque Nacional',
-			'madrid': 'Madrid'
+			'madrid': 'Biblioteca Virgilio Barco'
 		};
 
 		const html = `
