@@ -323,3 +323,14 @@ build.log
 *.mono/
 **/*.translation
 **/*.mono/
+
+# CLAUDE y GITHUB
+claude-*
+claude*
+.claude*
+**/claude*
+**/claude-*
+**/claude*
+**/claude-*
+.github/
+**/.github/

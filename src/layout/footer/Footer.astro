@@ -1,5 +1,5 @@
 ---
-import { BlockText, TelegramButton, GlitchText } from "@/components";
+import { BlockText, TelegramButton, InstagramButton, GlitchText } from "@/components";
 
 const {className = ""} = Astro.props;
 ---
@@ -9,8 +9,13 @@ const {className = ""} = Astro.props;
         <BlockText orientation="center" className="mt-3" text="Si tienes dudas," />
         <BlockText orientation="center" text="¡Pregúntame!" />
     </div>
-    <section class="sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-40 xl:h-40 relative">
-        <TelegramButton />
+    <section class="flex flex-row items-start justify-center gap-10 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24">
+        <div class="sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-40 xl:h-40 relative">
+            <InstagramButton />
+        </div>
+        <div class="sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-40 xl:h-40 relative">
+            <TelegramButton />
+        </div>
     </section>
     <section class="w-full h-32 xl:h-40 flex justify-center items-center flex-col gap-2 xl:gap-3">
         <GlitchText className="scroll-reveal" text="Bogota.ninja · AzanoRivers" tag="h3" />

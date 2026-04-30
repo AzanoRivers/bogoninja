@@ -10,6 +10,7 @@ export { default as SvgLine } from './astro/SvgLine/SvgLine.astro';
 export { default as Badge } from './astro/Badge/Badge.astro';
 export { default as Accordion } from './astro/Accordion/Accordion.astro';
 export { default as TelegramButton } from './astro/TelegramButton/TelegramButton.astro';
+export { default as InstagramButton } from './astro/InstagramButton/InstagramButton.astro';
 export { default as GlitchText } from './astro/GlitchText/GlitchText.astro';
 export { default as FloatingFormButton } from './astro/FloatingFormButton/FloatingFormButton.astro';
 
