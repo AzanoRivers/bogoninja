@@ -146,8 +146,7 @@ export function generateWelcomeEmail(data: WelcomeEmailData): string {
 					<tr>
 						<td style="padding:8px 32px 24px;">
 							<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
-								Recuerda que esto es una iniciativa de mi marca
-								<strong style="color:#d377f4;">AzanoRivers</strong>,
+								Recuerda que esto es una iniciativa personal
 								impactando la sociedad con un estilo de vida moderno e inteligente.
 							</p>
 						</td>
