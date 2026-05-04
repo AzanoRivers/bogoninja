@@ -170,32 +170,39 @@
 @keyframes glitch-anim {
 	0%,
 	100% {
+		-webkit-clip-path: inset(0);
 		clip-path: inset(0);
 	}
 
 	10% {
+		-webkit-clip-path: inset(10% 0 85% 0);
 		clip-path: inset(10% 0 85% 0);
 	}
 
 	20% {
+		-webkit-clip-path: inset(80% 0 15% 0);
 		clip-path: inset(80% 0 15% 0);
 	}
 
 	30%,
 	50% {
+		-webkit-clip-path: inset(0);
 		clip-path: inset(0);
 	}
 
 	40% {
+		-webkit-clip-path: inset(40% 0 55% 0);
 		clip-path: inset(40% 0 55% 0);
 	}
 
 	60% {
+		-webkit-clip-path: inset(70% 0 25% 0);
 		clip-path: inset(70% 0 25% 0);
 	}
 
 	70%,
 	95% {
+		-webkit-clip-path: inset(0);
 		clip-path: inset(0);
 	}
 }
