@@ -251,7 +251,7 @@ export function generateSesionEmail(data: SesionEmailData): string {
 						<td style="padding:24px 32px 8px;">
 							<p style="margin:0 0 12px; font-size:15px; line-height:1.7; color:#e3edf6;">
 								Para confirmar tu asistencia recuerda enviar la confirmación del pago a mi
-								<strong style="color:#d377f4;">Telegram</strong>.
+								<strong style="color:#d377f4;">Instagram o Telegram</strong>.
 								Puedes enviarme lo que consideres adecuado.
 							</p>
 						</td>
@@ -280,24 +280,33 @@ export function generateSesionEmail(data: SesionEmailData): string {
 						</td>
 					</tr>
 
-					<!-- ══ TELEGRAM BOTÓN ══ -->
+					<!-- ══ INSTAGRAM + TELEGRAM BOTONES ══ -->
 					<tr>
 						<td style="padding:12px 32px 32px; text-align:center;">
-							<a href="https://t.me/azanorivers"
-								style="display:inline-block; background:rgba(171,91,199,0.25); border:2px solid rgba(211,119,244,0.6); border-radius:8px; padding:14px 40px; text-decoration:none; color:#d377f4; font-size:16px; font-weight:700; letter-spacing:0.5px;">
-								<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; margin:0 auto;">
-									<tr>
-										<td style="vertical-align:middle; padding-right:10px;">
-											<svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M41.4193 7.30899C41.4193 7.30899 45.3046 5.79399 44.9808 9.47328C44.8729 10.9883 43.9016 16.2908 43.1461 22.0262L40.5559 39.0159C40.5559 39.0159 40.3401 41.5048 38.3974 41.9377C36.4547 42.3705 33.5408 40.4227 33.0011 39.9898C32.5694 39.6652 24.9068 34.7955 22.2086 32.4148C21.4531 31.7655 20.5897 30.4669 22.3165 28.9519L33.6487 18.1305C34.9438 16.8319 36.2389 13.8019 30.8426 17.4812L15.7331 27.7616C15.7331 27.7616 14.0063 28.8437 10.7686 27.8698L3.75342 25.7055C3.75342 25.7055 1.16321 24.0823 5.58815 22.459C16.3807 17.3729 29.6555 12.1786 41.4193 7.30899Z" fill="#d377f4"/>
-											</svg>
-										</td>
-										<td style="vertical-align:middle; color:#d377f4; font-size:16px; font-weight:700;">
-											Escríbeme a Telegram
-										</td>
-									</tr>
-								</table>
-							</a>
+							<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; margin:0 auto;">
+								<tr>
+									<td style="vertical-align:middle;">
+										<a href="https://www.instagram.com/bogota_ninja/" style="display:inline-block; background:rgba(171,91,199,0.25); border:2px solid rgba(211,119,244,0.6); border-radius:8px; padding:14px 20px; text-decoration:none; color:#d377f4; font-size:15px; font-weight:700; letter-spacing:0.5px;">
+										<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; margin:0 auto;">
+										<tr>
+										<td style="vertical-align:middle; padding-right:8px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#d377f4"/></svg></td>
+										<td style="vertical-align:middle; color:#d377f4; font-size:15px; font-weight:700;">Instagram</td>
+										</tr>
+										</table>
+										</a>
+									</td>
+									<td style="padding-left:8px; vertical-align:middle;">
+										<a href="https://t.me/azanorivers" style="display:inline-block; background:rgba(171,91,199,0.25); border:2px solid rgba(211,119,244,0.6); border-radius:8px; padding:14px 20px; text-decoration:none; color:#d377f4; font-size:15px; font-weight:700; letter-spacing:0.5px;">
+										<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; margin:0 auto;">
+										<tr>
+										<td style="vertical-align:middle; padding-right:8px;"><svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M41.4193 7.30899C41.4193 7.30899 45.3046 5.79399 44.9808 9.47328C44.8729 10.9883 43.9016 16.2908 43.1461 22.0262L40.5559 39.0159C40.5559 39.0159 40.3401 41.5048 38.3974 41.9377C36.4547 42.3705 33.5408 40.4227 33.0011 39.9898C32.5694 39.6652 24.9068 34.7955 22.2086 32.4148C21.4531 31.7655 20.5897 30.4669 22.3165 28.9519L33.6487 18.1305C34.9438 16.8319 36.2389 13.8019 30.8426 17.4812L15.7331 27.7616C15.7331 27.7616 14.0063 28.8437 10.7686 27.8698L3.75342 25.7055C3.75342 25.7055 1.16321 24.0823 5.58815 22.459C16.3807 17.3729 29.6555 12.1786 41.4193 7.30899Z" fill="#d377f4"/></svg></td>
+										<td style="vertical-align:middle; color:#d377f4; font-size:15px; font-weight:700;">Telegram</td>
+										</tr>
+										</table>
+										</a>
+									</td>
+								</tr>
+							</table>
 						</td>
 					</tr>
 

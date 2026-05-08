@@ -21,5 +21,5 @@ success_message: "¡Super! a tu correo llegará más información.\nRevisa Spam!
 captcha_label: "Resuelve la suma para continuar"
 error_cooldown: "Debes esperar {minutes} minuto(s) para enviar nuevamente tus datos"
 cooldown_info: "Puedes enviar el formulario 1 vez cada 15min para actualizar tus datos. Recibirás un mensaje con más información sobre las sesiones de entrenamiento a tu correo."
-info_2: "Si no deseas suministrar tu correo, puedes escribirme a mi Telegram que encontrarás abajo de este formulario."
+info_2: "Si no deseas suministrar tu correo, puedes escribirme por Instagram o Telegram que encontrarás abajo de este formulario."
 ---

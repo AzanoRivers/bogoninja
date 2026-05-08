@@ -125,7 +125,7 @@ export function generateUpdateEmail(data: UpdateEmailData): string {
 					<tr>
 						<td style="padding:8px 32px 24px;">
 							<p style="margin:0; font-size:15px; line-height:1.75; color:#e3edf6;">
-								Recuerda que puedes contactarme por <strong style="color:#d377f4;">Telegram</strong> para cualquier consulta o para programar una sesión privada.
+								Recuerda que puedes contactarme por <strong style="color:#d377f4;">Instagram o Telegram</strong> para cualquier consulta o para programar una sesión privada.
 							</p>
 						</td>
 					</tr>
